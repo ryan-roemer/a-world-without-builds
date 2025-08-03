@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Spectacle One-Page Example</title>
+    <title>A World Without Builds</title>
   </head>
   <body>
     <div id="root"></div>
@@ -78,6 +78,7 @@
       import htm from "htm";
       const html = htm.bind(React.createElement);
 
+      // TODO: better themes
       const theme = {
         colors: {
           primary: "#e2e8f0", // Light gray for text on dark background
@@ -97,9 +98,9 @@
         () => html`<${Deck} theme=${theme} template=${template}>
           <${Slide}>
             <${FlexBox} height="100%" flexDirection="column">
-              <${Heading} margin="0px">A World</${Heading}>
-              <${Heading} margin="0px">Without Builds</${Heading}>
-              <${Heading} margin="0px 32px">
+              <${Heading} margin="0px" fontSize="100px">A World</${Heading}>
+              <${Heading} margin="0px" fontSize="100px">Without Builds</${Heading}>
+              <${Heading} margin="0px 32px" color="primary">
                 CascadiaJS 2025
               </${Heading}>
             </${FlexBox}>
@@ -111,6 +112,19 @@
               # TODO: Slide Two
             `}
           </${MarkdownSlideSet}>
+          () => (
+          <${Slide}>
+            <${CodePane} fontSize=${48} language="javascript" highlightRanges=${[1, 3]}>
+              ${`
+                // TODO: REMOVE
+                const App = () => (
+                  <Provider value={client}>
+                    <Todos />
+                  </Provider>
+                );
+              `}
+            </${CodePane}>
+          </${Slide}>
         </${Deck}>
       `;
       const root = createRoot(document.getElementById("root"));
