@@ -1,0 +1,271 @@
+/* Pure CSS + Custom Theme Styles for A World Without Builds */
+/* Based on the presentation deck theme */
+
+/* Import Pure CSS */
+@import url("https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css");
+
+/* Custom theme variables matching the presentation deck */
+:root {
+  --primary: #e2e8f0; /* Light gray for text on dark background */
+  --secondary: #60a5fa; /* Bright blue for headings */
+  --tertiary: #1a202c; /* Dark background */
+  --quaternary: #60a5fa; /* Blue for links */
+  --quinary: #4a5568; /* Medium gray for accents */
+  --accent: #38b2ac; /* Teal accent */
+  --success: #48bb78; /* Green for success states */
+  --warning: #ed8936; /* Orange for warnings */
+  --error: #f56565; /* Red for errors */
+}
+
+/* Base styles */
+body {
+  background-color: var(--tertiary);
+  color: var(--primary);
+  font-family:
+    "Inter",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+}
+
+/* Typography */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--secondary);
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+h2 {
+  font-size: 2rem;
+}
+h3 {
+  font-size: 1.5rem;
+}
+
+p {
+  margin-bottom: 1rem;
+  color: var(--primary);
+}
+
+/* Links */
+a {
+  color: var(--quaternary);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--secondary);
+  text-decoration: underline;
+}
+
+/* Pure CSS overrides for dark theme */
+.pure-button {
+  background-color: var(--secondary);
+  color: var(--tertiary);
+  border: 2px solid var(--secondary);
+  border-radius: 6px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.pure-button:hover {
+  background-color: var(--quaternary);
+  border-color: var(--quaternary);
+  transform: translateY(-1px);
+}
+
+.pure-button-secondary {
+  background-color: transparent;
+  color: var(--secondary);
+  border-color: var(--secondary);
+}
+
+.pure-button-secondary:hover {
+  background-color: var(--secondary);
+  color: var(--tertiary);
+}
+
+/* Form elements */
+.pure-form input[type="text"],
+.pure-form input[type="email"],
+.pure-form input[type="password"],
+.pure-form textarea,
+.pure-form select {
+  background-color: var(--quinary);
+  border: 1px solid var(--quinary);
+  color: var(--primary);
+  border-radius: 4px;
+}
+
+.pure-form input[type="text"]:focus,
+.pure-form input[type="email"]:focus,
+.pure-form input[type="password"]:focus,
+.pure-form textarea:focus,
+.pure-form select:focus {
+  border-color: var(--secondary);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.1);
+}
+
+/* Tables */
+.pure-table {
+  background-color: var(--quinary);
+  color: var(--primary);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.pure-table thead {
+  background-color: var(--secondary);
+  color: var(--tertiary);
+}
+
+.pure-table tbody tr:nth-child(even) {
+  background-color: rgba(96, 165, 250, 0.1);
+}
+
+.pure-table tbody tr:hover {
+  background-color: rgba(96, 165, 250, 0.2);
+}
+
+/* Navigation */
+.pure-menu {
+  background-color: var(--quinary);
+  border-radius: 8px;
+}
+
+.pure-menu-link {
+  color: var(--primary);
+  transition: all 0.2s ease;
+}
+
+.pure-menu-link:hover,
+.pure-menu-link:focus {
+  background-color: var(--secondary);
+  color: var(--tertiary);
+}
+
+.pure-menu-active > .pure-menu-link {
+  background-color: var(--secondary);
+  color: var(--tertiary);
+}
+
+/* Grid and layout */
+.pure-g {
+  margin-bottom: 2rem;
+}
+
+/* Cards and containers */
+.card {
+  background-color: var(--quinary);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid rgba(96, 165, 250, 0.2);
+}
+
+.card:hover {
+  border-color: var(--secondary);
+  transform: translateY(-2px);
+  transition: all 0.2s ease;
+}
+
+/* Code blocks */
+code {
+  background-color: var(--quinary);
+  color: var(--accent);
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  font-family: "Monaco", "Menlo", "Ubuntu Mono", monospace;
+}
+
+pre {
+  background-color: var(--quinary);
+  color: var(--primary);
+  padding: 1rem;
+  border-radius: 8px;
+  overflow-x: auto;
+  border: 1px solid rgba(96, 165, 250, 0.2);
+}
+
+/* Utilities */
+.text-center {
+  text-align: center;
+}
+.text-right {
+  text-align: right;
+}
+.text-left {
+  text-align: left;
+}
+
+.mt-1 {
+  margin-top: 0.5rem;
+}
+.mt-2 {
+  margin-top: 1rem;
+}
+.mt-3 {
+  margin-top: 1.5rem;
+}
+.mt-4 {
+  margin-top: 2rem;
+}
+
+.mb-1 {
+  margin-bottom: 0.5rem;
+}
+.mb-2 {
+  margin-bottom: 1rem;
+}
+.mb-3 {
+  margin-bottom: 1.5rem;
+}
+.mb-4 {
+  margin-bottom: 2rem;
+}
+
+.p-1 {
+  padding: 0.5rem;
+}
+.p-2 {
+  padding: 1rem;
+}
+.p-3 {
+  padding: 1.5rem;
+}
+.p-4 {
+  padding: 2rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem;
+  }
+  h2 {
+    font-size: 1.5rem;
+  }
+  h3 {
+    font-size: 1.25rem;
+  }
+
+  .card {
+    padding: 1rem;
+    margin-bottom: 1rem;
+  }
+}
