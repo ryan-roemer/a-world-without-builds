@@ -23,9 +23,7 @@
         { name: "Bob", age: 30 },
       ];
       const root = document.getElementById("root") as HTMLElement;
-      const userList = users
-        .map((u) => `<div>${u.name} (${u.age})</div>`)
-        .join("");
+      const userList = users.map((u) => `<p>${u.name} (${u.age})</p>`).join("");
       root.innerHTML = `<h1>TypeScript Users</h1>${userList}`;
       console.log("Users loaded:", users);
     </script>

@@ -98,16 +98,23 @@
         () => html`<${Deck} theme=${theme} template=${template}>
           <${Slide}>
             <${FlexBox} height="100%" flexDirection="column">
-              <${Heading} margin="0px" fontSize="100px">A World</${Heading}>
-              <${Heading} margin="0px" fontSize="100px">Without Builds</${Heading}>
-              <${Heading} margin="0px 32px" color="primary">
-                CascadiaJS 2025
-              </${Heading}>
+              ${["A World", "Without Builds"].map(
+                (text, index) => html`
+                <${Heading} key=${index} fontSize="120px" style=${{ textTransform: "uppercase", margin: "0" }}>
+                  ${text}
+                </${Heading}>`,
+              )}
+              <${Heading} fontSize="h2" color="h2">CascadiaJS 2025</${Heading}>
             </${FlexBox}>
           </${Slide}>
           <${MarkdownSlideSet}>
             ${`
-              # TODO: Slide One
+              # Spoilers
+
+              ~~_Serverless_: still runs **servers**~~
+
+              _Buildless_: still runs **builds**
+
               ---
               # TODO: Slide Two
             `}
