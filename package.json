@@ -5,15 +5,17 @@
   "type": "module",
   "scripts": {
     "dev": "npx serve",
-    "lint": "eslint . --fix",
+    "lint:js": "eslint . --fix",
+    "lint:ts": "tsc --noEmit --module NodeNext examples/typescript/src/*.ts",
+    "lint": "npm run lint:js && npm run lint:ts",
     "pretty": "prettier . --write",
     "format": "npm run lint && npm run pretty"
   },
   "license": "MIT",
-  "dependencies": {},
   "devDependencies": {
     "eslint": "^9.30.0",
     "eslint-config-prettier": "^10.1.5",
-    "prettier": "^3.6.2"
+    "prettier": "^3.6.2",
+    "typescript": "^5.9.2"
   }
 }

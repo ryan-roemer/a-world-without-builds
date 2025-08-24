@@ -4,6 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/iconoir-icons/iconoir@main/css/iconoir.css"
+    />
     <title>A World Without Builds</title>
   </head>
   <body>
@@ -77,21 +87,7 @@
 
       import htm from "htm";
       const html = htm.bind(React.createElement);
-
-      // TODO: better themes
-      const theme = {
-        colors: {
-          primary: "#e2e8f0", // Light gray for text on dark background
-          secondary: "#60a5fa", // Bright blue for headings
-          tertiary: "#1a202c", // Dark background
-          quaternary: "#60a5fa", // Blue for links
-          quinary: "#4a5568", // Medium gray for accents
-        },
-        fonts: {
-          header: "'Inter', sans-serif;",
-          text: "'Inter', sans-serif;",
-        },
-      };
+      import { theme } from "./deck/theme.js";
 
       const template = html` <${DefaultTemplate} />`;
       const Presentation =
@@ -115,7 +111,7 @@
               * **1995**: Hello JavaScript!
               * **1995-2001**: We wrote JavaScript that actually executed in the browser
               * **2001**: JSMin is introduced
-              * **2010-2012**: The bundlers (_2010_: RequireJS, _2011_: Browserify, _2012_: Webpack, ...)
+              * **2010-2015**: The bundlers (_2010_: RequireJS, _2011_: Browserify, _2012_: Webpack, ...)
               * **2015-on**: The modern bundlers (_2015_: Rollup, _2017_: Parcel, _2020_: Vite, ...)
 
               ---
@@ -149,7 +145,8 @@
               * **2015**: ECMAScript Modules (ESM) released
               * **2018**: \`es-module-shims\` started
               * **2021**: Import Maps start to be supported
-              * TODO: unpkg, esm.sh, jspm.io, etc.
+              * _2017_: unpkg.com module flag, _2020_: esm.sh, jspm.io, etc.
+              * _2018_: Deno, _2022_: Bun
               <!-- TODO: Other dates / technologies? -->
 
               ---
@@ -158,7 +155,7 @@
               * The naming problem. (import maps)
               * The React problem. (esm.sh, etc.)
               * The JSX problem. (htm)
-              * The TypeScript problem (???)
+              * The TypeScript problem (bun, deno, node type stripping, etc.)
               * How far can you push it?
                   * What's appropriate for production?
 
@@ -169,6 +166,11 @@
               * Web components.
               * Fun background images.
               * ...
+
+              ---
+              # TODO: Example Links
+
+              * [typescript](./examples/typescript/)
             `}
           </${MarkdownSlideSet}>
           () => (
