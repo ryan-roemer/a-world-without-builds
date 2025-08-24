@@ -43,9 +43,9 @@ export const colors = {
 export const theme = {
   colors: {
     primary: colors.basics.white,
-    secondary: colors.green[50],
-    tertiary: colors.midnight[80],
-    quaternary: colors.purple[30],
+    secondary: colors.green[50], // headings
+    tertiary: colors.midnight[80], // background
+    quaternary: colors.blue[30], // links
     quinary: colors.grey[10],
   },
   fonts: {

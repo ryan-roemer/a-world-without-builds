@@ -12,7 +12,13 @@
     />
     <link
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/gh/iconoir-icons/iconoir@main/css/iconoir.css"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/fill/style.css"
     />
     <title>A World Without Builds</title>
   </head>
@@ -87,7 +93,7 @@
 
       import htm from "htm";
       const html = htm.bind(React.createElement);
-      import { theme } from "./deck/theme.js";
+      import { theme, colors } from "./deck/theme.js";
 
       const template = html` <${DefaultTemplate} />`;
       const Presentation =
@@ -177,6 +183,17 @@
 
               * Folks like JSPM, etc. are really pushing how much you can do without a build.
               * ...
+
+              --- { "layout": "center" }
+              # TODO: Thanks
+
+              [ryan-roemer.github.io/a-world-without-builds](https://ryan-roemer.github.io/a-world-without-builds/)
+
+              <i class="ph-fill ph-github-logo"></i> [ryan-roemer/a-world-without-builds](https://github.com/ryan-roemer/a-world-without-builds)
+              <i class="ph-fill ph-twitter-logo"></i> [@ryan_roemer](https://x.com/ryan_roemer)
+              <i class="ph-fill ph-butterfly"></i> [@ryan-roemer.bsky.social](https://bsky.app/profile/ryan-roemer.bsky.social)
+              <i class="ph-fill ph-linkedin-logo"></i> [ryanroemer](https://www.linkedin.com/in/ryanroemer/)
+              <i class="ph-fill ph-envelope"></i> [ryan.roemer@nearform.com](mailto:ryan.roemer@nearform.com)
             `}
           </${MarkdownSlideSet}>
           () => (
