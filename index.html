@@ -100,6 +100,7 @@
         style="width: 0.9em; height: 0.9em; margin-bottom: -0.05em"
       />`.replace(/\n/g, "");
       const icon = (name) => `<i class="ph-fill ph-${name}"></i>`;
+      const iconHtm = (name) => html`<i class="ph-fill ph-${name}"></i>`;
 
       const template = html` <${DefaultTemplate} />`;
       const Presentation =
@@ -108,11 +109,13 @@
             <${FlexBox} height="100%" flexDirection="column">
               ${["A World", "Without Builds"].map(
                 (text, index) => html`
-                <${Heading} key=${index} fontSize="120px" style=${{ textTransform: "uppercase", margin: "0" }}>
+                <${Heading} key=${index} fontSize="140px" style=${{ textTransform: "uppercase", margin: "0" }}>
                   ${text}
                 </${Heading}>`,
               )}
-              <${Heading} fontSize="h2" color="h2">CascadiaJS 2025</${Heading}>
+              <${Heading} fontSize="h2" color="h2">
+                ${iconHtm("tree-evergreen")} CascadiaJS 2025
+                </${Heading}>
             </${FlexBox}>
           </${Slide}>
           <${MarkdownSlideSet}>
@@ -121,10 +124,11 @@
               <span style="font-size: 120px"><i class="ph-fill ph-heart"></i> CascadiaJS</span>
 
               --- { "layout": "center" }
-              # ${icon("heart")} Hi!
+              # Hi!
 
               ${icon("hand-waving")} I'm Ryan Roemer
               ${nearformLogo} I lead technology & OSS at [Nearform](https://nearform.com)
+              ${icon("toolbox")} I **like** & **dislike** builds
 
               ---
               <!-- TODO: Completely iron out the years for this timeline -->
