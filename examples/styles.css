@@ -6,15 +6,15 @@
 
 /* Custom theme variables matching the presentation deck */
 :root {
-  --primary: #e2e8f0; /* Light gray for text on dark background */
-  --secondary: #60a5fa; /* Bright blue for headings */
-  --tertiary: #1a202c; /* Dark background */
-  --quaternary: #60a5fa; /* Blue for links */
-  --quinary: #4a5568; /* Medium gray for accents */
-  --accent: #38b2ac; /* Teal accent */
-  --success: #48bb78; /* Green for success states */
-  --warning: #ed8936; /* Orange for warnings */
-  --error: #f56565; /* Red for errors */
+  --primary: #fff; /* White for text (theme.colors.primary) */
+  --secondary: #78eec5; /* Green 50 for headings (theme.colors.secondary) */
+  --tertiary: #0c3d60; /* Midnight 80 for background (theme.colors.tertiary) */
+  --quaternary: #b9d3ff; /* Blue 30 for links (theme.colors.quaternary) */
+  --quinary: #eaebed; /* Grey 10 for accents (theme.colors.quinary) */
+  --accent: #00e5a4; /* Green base for accents */
+  --success: #00e5a4; /* Green base for success states */
+  --warning: #8950ff; /* Purple base for warnings */
+  --error: #166bff; /* Blue base for errors */
 }
 
 /* Base styles */
