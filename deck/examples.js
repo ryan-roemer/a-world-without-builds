@@ -32,15 +32,17 @@ export const getExamples = async () => {
       html: await fetch(html)
         .then((res) => res.text())
         .then((html) => {
-          // Get scripts from control comment.
-          const scripts = html
-            .replace(/^[\s\S]*?<!-- scripts -->\n/gm, "")
-            .replace(/<\/body>[\s\S]*$/gm, "")
-            .trimEnd();
+          const scripts = [];
+          const parts = html.split("<!-- scripts -->");
+          for (let part of parts) {
+            if (part.trimStart().startsWith("<script")) {
+              part = part.replace(/<\/body>[\s\S]*$/gm, "").trimEnd();
 
-          // Use first indent to dedent rest of the lines.
-          const indent = scripts.match(/^\s*/)?.[0] ?? "";
-          return scripts.replace(new RegExp(`^${indent}`, "gm"), "");
+              scripts.push(part);
+            }
+          }
+
+          return scripts;
         }),
     };
   }

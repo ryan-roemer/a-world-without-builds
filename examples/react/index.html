@@ -27,23 +27,20 @@
         }
       }
     </script>
+    <!-- scripts -->
     <script type="module">
       import { Fragment, createElement } from "react";
       import { createRoot } from "react-dom/client";
       import htm from "htm";
       import { users } from "./users.js";
 
-      // JSX-like syntax with template literals!
-      const html = htm.bind(createElement);
+      const html = htm.bind(createElement); // JSX-like template literals!
 
       const User = ({ name, age }) => html`<p>${name} (${age})</p>`;
       const App = () => html`
         <${Fragment}>
-          ${users.map(
-            (user, index) => html`<${User} key=${index} ...${user} />`,
-          )}
-        </${Fragment}>
-      `;
+          ${users.map((user, i) => html`<${User} key=${i} ...${user} />`)}
+        </${Fragment}>`;
 
       const root = createRoot(document.getElementById("root"));
       root.render(html`<${App} />`);

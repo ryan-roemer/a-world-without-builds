@@ -101,6 +101,7 @@
       const iconHtm = (name) => html`<i class="ph-fill ph-${name}"></i>`;
       const template = html` <${DefaultTemplate} />`;
       const examples = await getExamples();
+      console.log(examples);
 
       // Examples presentation.
       Object.keys(examples).forEach((key) => {
@@ -115,16 +116,17 @@
                 ${examples[key].code}
               </${CodePane}>
             </${Slide}>
-            <${Slide}>
-              <${Heading} fontSize="h3">
-                ${examples[key].name}
-                <span style=${{ color: theme.colors.primary }}> - HTML</span>
-              </${Heading}>
-              ${"" /* TODO: Split large examples */}
-              <${CodePane} fontSize=${12} language="html">
-                ${examples[key].html}
-              </${CodePane}>
-            </${Slide}>
+            ${examples[key].html.map(
+              (block, index) => html`
+              <${Slide} key=${index}>
+                <${Heading} fontSize="h3">
+                  ${examples[key].name}
+                  <span style=${{ color: theme.colors.primary }}> - HTML</span>
+                </${Heading}>
+                <${CodePane} language="html">${block}</${CodePane}>
+              </${Slide}>
+            `,
+            )}
           </${Fragment}>
         `;
       });
