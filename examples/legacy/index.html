@@ -16,13 +16,14 @@
     <div id="root"></div>
 
     <!-- scripts -->
-    <script src="users.js"></script>
+    <script src="users.js">
+      /* ⚠️ attached to global `this` as `users` */
+    </script>
     <script>
-      // ... ye old `var`s and `+` string concatenation!
+      // 🕰️ ... ye old `var`s and `+` string concatenation!
       var html = "";
       for (var i = 0; i < users.length; i++) {
-        var user = users[i];
-        html += "<p>" + user.name + " (" + user.age + ")</p>";
+        html += "<p>" + users[i].name + " (" + users[i].age + ")</p>";
       }
 
       var root = document.getElementById("root");
