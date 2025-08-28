@@ -190,6 +190,10 @@
 
               A modern simple stack usually entails at least a **bundler**, a **transpiler**, and a **style library**.
 
+              We run **minified, heavily transformed** code.
+
+              Builds are **complicated** and **time-consuming**.
+
               --- { "layout": "center" }
               # And that's OK!
 
@@ -201,14 +205,18 @@
               ---
               # Spoilers
 
-              * ~~_Serverless_: still runs **servers**~~
-              * _Buildless_: still runs **builds**
+              * Most large scale web apps probably still **need builds**
+              * ~~_Serverless_ still runs **servers**~~ ${icon("arrow-right")}
+                _Buildless_ still runs **builds**
 
               ---
-              # The Real Questions
+              # The Interesting Parts
 
-              * When can you go truly **pure JS**?
-              * How can you use **runtime** builds?
+              * The evolution of the space.
+              * Shifting to **runtime** builds.
+              * What can you actually get away with?
+                  * React?
+                  * TypeScript?
 
               ---
               # Another timeline...
@@ -220,13 +228,20 @@
               * _2018_: Deno, _2022_: Bun
               <!-- TODO: Other dates / technologies? -->
 
+            `}
+          </${MarkdownSlideSet}>
+          ${examples.modern.slides}
+          <${MarkdownSlideSet}>
+            ${`
+              # TODO: PRoblems
+              * React
+              * naming
+
               ---
+
               # TODO: Slides to write
 
               * The naming problem. (import maps)
-              * The React problem. (esm.sh, etc.)
-              * The JSX problem. (htm)
-              * The TypeScript problem (bun, deno, node type stripping, etc.)
               * The future
                   * Typescript
                   * Wasm, etc. (other features)
@@ -242,14 +257,6 @@
               * Fun background images.
               * This presentation is a buildless app with a big import map.
               * ...
-
-              ---
-              # TODO: Example Links
-
-              * [legacy](./examples/legacy/)
-              * [modern](./examples/modern/)
-              * [react](./examples/react/)
-              * [typescript](./examples/typescript/)
 
               ---
               # TODO: Takeaways
