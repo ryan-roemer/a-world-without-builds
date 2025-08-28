@@ -98,7 +98,14 @@
 
       // Components, helpers.
       const icon = (name) => `<i class="ph-fill ph-${name}"></i>`;
-      const iconHtm = (name) => html`<i class="ph-fill ph-${name}"></i>`;
+      const IconHtm = ({ name, fill = true }) =>
+        html`<i class="ph${fill ? "-fill" : ""} ph-${name}"></i>`;
+      const IconLink = ({ name, href, fill = false, color }) => html`
+        <a href=${href} style=${{ color, textDecoration: "none" }}
+          ><${IconHtm} name=${name} fill=${fill}
+        /></a>
+      `;
+
       const template = html` <${DefaultTemplate} />`;
       const examples = await getExamples();
       console.log(examples);
@@ -110,18 +117,20 @@
             <${Slide}>
               <${Heading} fontSize="h3">
                 ${examples[key].name}
-                <span style=${{ color: theme.colors.primary }}> - Code</span>
+                <span style=${{ color: theme.colors.primary }}> - Code </span>
+                <${IconLink} href=${examples[key].path} name="link" color=${theme.colors.primary} />
               </${Heading}>
               <${CodePane} language="${key === "typescript" ? "typescript" : "javascript"}">
                 ${examples[key].code}
               </${CodePane}>
             </${Slide}>
             ${examples[key].html.map(
-              (block, index) => html`
+              (block, index, items) => html`
               <${Slide} key=${index}>
                 <${Heading} fontSize="h3">
                   ${examples[key].name}
-                  <span style=${{ color: theme.colors.primary }}> - HTML</span>
+                  <span style=${{ color: theme.colors.primary }}> - HTML${items.length > 1 ? ` (${index + 1})` : ""} </span>
+                  <${IconLink} href=${examples[key].path} name="link" color=${theme.colors.primary} />
                 </${Heading}>
                 <${CodePane} language="html">${block}</${CodePane}>
               </${Slide}>
@@ -143,7 +152,7 @@
                 </${Heading}>`,
               )}
               <${Heading} fontSize="h2" color="h2">
-                ${iconHtm("tree-evergreen")} CascadiaJS 2025
+                <${IconHtm} name="tree-evergreen" /> CascadiaJS 2025
                 </${Heading}>
             </${FlexBox}>
           </${Slide}>

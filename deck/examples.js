@@ -28,6 +28,7 @@ export const getExamples = async () => {
   for (const [key, { code, html }] of Object.entries(EXAMPLES_PATHS)) {
     examples[key.toLocaleLowerCase()] = {
       name: key,
+      path: html.replace("index.html", ""),
       code: await fetch(code).then((res) => res.text()),
       html: await fetch(html)
         .then((res) => res.text())
