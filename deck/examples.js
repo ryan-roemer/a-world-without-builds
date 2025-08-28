@@ -4,19 +4,19 @@
  */
 
 const EXAMPLES_PATHS = {
-  legacy: {
+  Legacy: {
     code: "./examples/legacy/users.js",
     html: "./examples/legacy/index.html",
   },
-  modern: {
+  Modern: {
     code: "./examples/modern/users.js",
     html: "./examples/modern/index.html",
   },
-  react: {
+  React: {
     code: "./examples/react/users.js",
     html: "./examples/react/index.html",
   },
-  typescript: {
+  TypeScript: {
     code: "./examples/typescript/users.ts",
     html: "./examples/typescript/index.html",
   },
@@ -26,7 +26,8 @@ export const getExamples = async () => {
   const examples = {};
 
   for (const [key, { code, html }] of Object.entries(EXAMPLES_PATHS)) {
-    examples[key] = {
+    examples[key.toLocaleLowerCase()] = {
+      name: key,
       code: await fetch(code).then((res) => res.text()),
       html: await fetch(html)
         .then((res) => res.text())

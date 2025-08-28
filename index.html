@@ -63,7 +63,7 @@
       }
     </script>
     <script type="module">
-      import React from "react";
+      import { Fragment, createElement } from "react";
       import { createRoot } from "react-dom/client";
       import htm from "htm";
       // TOOD: Hone down unused imports.
@@ -94,7 +94,7 @@
       import { theme, colors } from "./deck/theme.js";
       import { logos } from "./deck/media.js";
       import { getExamples } from "./deck/examples.js";
-      const html = htm.bind(React.createElement);
+      const html = htm.bind(createElement);
 
       // Components, helpers.
       const icon = (name) => `<i class="ph-fill ph-${name}"></i>`;
@@ -220,19 +220,29 @@
               ${icon("envelope")} [ryan.roemer@nearform.com](mailto:ryan.roemer@nearform.com)
             `}
           </${MarkdownSlideSet}>
-          () => (
-          <${Slide}>
-            <${CodePane} fontSize=${48} language="javascript" highlightRanges=${[1, 3]}>
-              ${`
-                // TODO: REMOVE
-                const App = () => (
-                  <Provider value={client}>
-                    <Todos />
-                  </Provider>
-                );
-              `}
-            </${CodePane}>
-          </${Slide}>
+          ${Object.keys(examples).map(
+            (key) => html`
+            <${Fragment} key=${key}>
+              <${Slide}>
+                <${Heading} fontSize="h3" margin="0 0 1rem 0">
+                  Code: ${examples[key].name}
+                </${Heading}>
+                <${CodePane} fontSize=${12} language="${key === "typescript" ? "typescript" : "javascript"}">
+                  ${examples[key].code}
+                </${CodePane}>
+              </${Slide}>
+              <${Slide}>
+                <${Heading} fontSize="h3" margin="0 0 1rem 0">
+                  HTML: ${examples[key].name}
+                </${Heading}>
+                <${CodePane} fontSize=${12} language="html">
+                  ${"" /* TODO: Split large examples */}
+                  ${examples[key].html}
+                </${CodePane}>
+              </${Slide}>
+            </${Fragment}>
+          `,
+          )}
         </${Deck}>
       `;
 
