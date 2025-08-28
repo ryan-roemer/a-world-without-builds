@@ -169,11 +169,18 @@
               ${icon("toolbox")} I **like** & **dislike** builds
 
               ---
-              <!-- TODO: Completely iron out the years for this timeline -->
               # Long, long ago...
 
               * **1995**: Hello JavaScript!
               * **1995-2001**: We wrote JavaScript that actually executed in the browser
+            `}
+          </${MarkdownSlideSet}>
+          ${examples.legacy.slides}
+          <${MarkdownSlideSet}>
+            ${`
+              ---
+              # And then ...
+
               * **2001**: JSMin is introduced
               * **2010-2015**: The bundlers (_2010_: RequireJS, _2011_: Browserify, _2012_: Webpack, ...)
               * **2015-on**: The modern bundlers (_2015_: Rollup, _2017_: Parcel, _2020_: Vite, ...)
@@ -258,7 +265,6 @@
               ${icon("envelope")} [ryan.roemer@nearform.com](mailto:ryan.roemer@nearform.com)
             `}
           </${MarkdownSlideSet}>
-          ${Object.keys(examples).map((key) => examples[key].slides)}
         </${Deck}>
       `;
 
