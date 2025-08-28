@@ -192,6 +192,7 @@
               * Other runtime: Deno, Bun, etc.
               * Web components.
               * Fun background images.
+              * This presentation is a buildless app with a big import map.
               * ...
 
               ---
@@ -224,19 +225,21 @@
             (key) => html`
             <${Fragment} key=${key}>
               <${Slide}>
-                <${Heading} fontSize="h3" margin="0 0 1rem 0">
-                  Code: ${examples[key].name}
+                <${Heading} fontSize="h3">
+                  ${examples[key].name}
+                  <span style=${{ color: theme.colors.primary }}> - Code</span>
                 </${Heading}>
-                <${CodePane} fontSize=${12} language="${key === "typescript" ? "typescript" : "javascript"}">
+                <${CodePane} language="${key === "typescript" ? "typescript" : "javascript"}">
                   ${examples[key].code}
                 </${CodePane}>
               </${Slide}>
               <${Slide}>
-                <${Heading} fontSize="h3" margin="0 0 1rem 0">
-                  HTML: ${examples[key].name}
+                <${Heading} fontSize="h3">
+                  ${examples[key].name}
+                  <span style=${{ color: theme.colors.primary }}> - HTML</span>
                 </${Heading}>
+                ${"" /* TODO: Split large examples */}
                 <${CodePane} fontSize=${12} language="html">
-                  ${"" /* TODO: Split large examples */}
                   ${examples[key].html}
                 </${CodePane}>
               </${Slide}>
