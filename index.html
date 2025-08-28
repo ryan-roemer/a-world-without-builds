@@ -93,12 +93,15 @@
 
       import { theme, colors } from "./deck/theme.js";
       import { logos } from "./deck/media.js";
+      import { getExamples } from "./deck/examples.js";
       const html = htm.bind(React.createElement);
 
       // Components, helpers.
       const icon = (name) => `<i class="ph-fill ph-${name}"></i>`;
       const iconHtm = (name) => html`<i class="ph-fill ph-${name}"></i>`;
       const template = html` <${DefaultTemplate} />`;
+      const examples = await getExamples();
+      console.log("TODO HERE", examples);
 
       // The presentation deck.
       const Presentation =

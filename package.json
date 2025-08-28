@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "npx serve",
     "lint:js": "eslint . --fix",
-    "lint:ts": "tsc --noEmit --module NodeNext examples/typescript/src/*.ts",
+    "lint:ts": "tsc --noEmit --module NodeNext examples/typescript/*.ts",
     "lint": "npm run lint:js && npm run lint:ts",
     "pretty": "prettier . --write",
     "format": "npm run lint && npm run pretty"

@@ -8,7 +8,7 @@ export const users: User[] = [
   { name: "Bob", age: 30 },
 ];
 
-// node|deno|bun examples/typescript/src/users.ts
+// node|deno|bun examples/typescript/users.ts
 if ((import.meta as any).main) {
   console.log("Users loaded:", users);
 }
