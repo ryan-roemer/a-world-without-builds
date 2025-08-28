@@ -101,7 +101,33 @@
       const iconHtm = (name) => html`<i class="ph-fill ph-${name}"></i>`;
       const template = html` <${DefaultTemplate} />`;
       const examples = await getExamples();
-      console.log("TODO HERE", examples);
+
+      // Examples presentation.
+      Object.keys(examples).forEach((key) => {
+        examples[key].slides = html`
+          <${Fragment} key=${key}>
+            <${Slide}>
+              <${Heading} fontSize="h3">
+                ${examples[key].name}
+                <span style=${{ color: theme.colors.primary }}> - Code</span>
+              </${Heading}>
+              <${CodePane} language="${key === "typescript" ? "typescript" : "javascript"}">
+                ${examples[key].code}
+              </${CodePane}>
+            </${Slide}>
+            <${Slide}>
+              <${Heading} fontSize="h3">
+                ${examples[key].name}
+                <span style=${{ color: theme.colors.primary }}> - HTML</span>
+              </${Heading}>
+              ${"" /* TODO: Split large examples */}
+              <${CodePane} fontSize=${12} language="html">
+                ${examples[key].html}
+              </${CodePane}>
+            </${Slide}>
+          </${Fragment}>
+        `;
+      });
 
       // The presentation deck.
       const Presentation =
@@ -221,31 +247,7 @@
               ${icon("envelope")} [ryan.roemer@nearform.com](mailto:ryan.roemer@nearform.com)
             `}
           </${MarkdownSlideSet}>
-          ${Object.keys(examples).map(
-            (key) => html`
-            <${Fragment} key=${key}>
-              <${Slide}>
-                <${Heading} fontSize="h3">
-                  ${examples[key].name}
-                  <span style=${{ color: theme.colors.primary }}> - Code</span>
-                </${Heading}>
-                <${CodePane} language="${key === "typescript" ? "typescript" : "javascript"}">
-                  ${examples[key].code}
-                </${CodePane}>
-              </${Slide}>
-              <${Slide}>
-                <${Heading} fontSize="h3">
-                  ${examples[key].name}
-                  <span style=${{ color: theme.colors.primary }}> - HTML</span>
-                </${Heading}>
-                ${"" /* TODO: Split large examples */}
-                <${CodePane} fontSize=${12} language="html">
-                  ${examples[key].html}
-                </${CodePane}>
-              </${Slide}>
-            </${Fragment}>
-          `,
-          )}
+          ${Object.keys(examples).map((key) => examples[key].slides)}
         </${Deck}>
       `;
 
