@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css"
+    />
+    <link rel="stylesheet" href="../styles.css" />
+    <title>Ex: React</title>
+  </head>
+  <body style="padding: 2rem">
+    <h1>Users</h1>
+    <div id="root"></div>
+
+    <script type="importmap">
+      {
+        "imports": {
+          "htm": "https://esm.sh/htm@^3?external=react,react-dom",
+          "react": "https://esm.sh/react@18.2.0?",
+          "react/jsx-runtime": "https://esm.sh/react@18.2.0/jsx-runtime?",
+          "react-dom": "https://esm.sh/react-dom@18.2.0?",
+          "react-dom/client": "https://esm.sh/react-dom@18.2.0/client?"
+        }
+      }
+    </script>
+    <script type="module">
+      import { Fragment, createElement } from "react";
+      import { createRoot } from "react-dom/client";
+      import htm from "htm";
+      import { users } from "./users.js";
+
+      // JSX-like syntax with template literals!
+      const html = htm.bind(createElement);
+
+      const User = ({ name, age }) => html`<p>${name} (${age})</p>`;
+      const App = () => html`
+        <${Fragment}>
+          ${users.map(
+            (user, index) =>
+              html`<${User} key=${index} name=${user.name} age=${user.age} />`,
+          )}
+        </${Fragment}>
+      `;
+
+      const root = createRoot(document.getElementById("root"));
+      root.render(html`<${App} />`);
+    </script>
+  </body>
+</html>
