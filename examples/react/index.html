@@ -39,8 +39,7 @@
       const App = () => html`
         <${Fragment}>
           ${users.map(
-            (user, index) =>
-              html`<${User} key=${index} name=${user.name} age=${user.age} />`,
+            (user, index) => html`<${User} key=${index} ...${user} />`,
           )}
         </${Fragment}>
       `;

@@ -102,6 +102,16 @@
       const icon = (name) => `<i class="ph-fill ph-${name}"></i>`;
       const iconHtm = (name) => html`<i class="ph-fill ph-${name}"></i>`;
 
+      // TODO: Fetch all this stuff and place in example slides!
+      fetch("./examples/legacy/users.js")
+        .then((response) => response.text())
+        .then((data) => {
+          console.log("Raw source of users.js:", data);
+        })
+        .catch((error) => {
+          console.error("Error fetching users.js:", error);
+        });
+
       const template = html` <${DefaultTemplate} />`;
       const Presentation =
         () => html`<${Deck} theme=${theme} template=${template}>
