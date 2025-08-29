@@ -34,9 +34,9 @@ export const getExamples = async () => {
         .then((res) => res.text())
         .then((html) => {
           const scripts = [];
-          const parts = html.split("<!-- scripts -->");
+          const [, ...parts] = html.split("<!-- scripts -->");
           for (let part of parts) {
-            if (part.trimStart().startsWith("<script")) {
+            if (part.trimStart().startsWith("<")) {
               part = part.replace(/<\/body>[\s\S]*$/gm, "").trimEnd();
 
               scripts.push(part);
