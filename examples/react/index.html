@@ -18,6 +18,7 @@
     <!-- scripts -->
     <script type="importmap">
       {
+        "// 💡 The magic -- map bare names to URLs": "",
         "imports": {
           "htm": "https://esm.sh/htm@^3?external=react,react-dom",
           "react": "https://esm.sh/react@18.2.0?",
@@ -29,13 +30,12 @@
     </script>
     <!-- scripts -->
     <script type="module">
-      import { Fragment, createElement } from "react";
+      import { Fragment, createElement } from "react"; // 💡 Bare names work now!
       import { createRoot } from "react-dom/client";
       import htm from "htm";
       import { users } from "./users.js";
 
-      const html = htm.bind(createElement); // JSX-like template literals!
-
+      const html = htm.bind(createElement); // ✨ JSX-like template literals!
       const User = ({ name, age }) => html`<p>${name} (${age})</p>`;
       const App = () => html`
         <${Fragment}>

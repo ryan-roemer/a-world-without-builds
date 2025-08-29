@@ -97,7 +97,12 @@
       const html = htm.bind(createElement);
 
       // Components, helpers.
-      const icon = (name) => `<i class="ph-fill ph-${name}"></i>`;
+      const icon = (args) => {
+        const { name, fill = true } =
+          typeof args === "object" ? args : { name: args };
+        return `<i class="ph${fill ? "-fill" : ""} ph-${name}"></i>`;
+      };
+      const iconArrow = icon({ name: "arrow-right", fill: false });
       const IconHtm = ({ name, fill = true }) =>
         html`<i class="ph${fill ? "-fill" : ""} ph-${name}"></i>`;
       const IconLink = ({ name, href, fill = false, color }) => html`
@@ -208,17 +213,15 @@
               * This is just a timeline and greatest hits.
                   * Skipping over a ton of technical detail.
               * Most large scale web apps probably still **need builds**
-              * ~~_Serverless_ still runs **servers**~~ ${icon("arrow-right")}
-                _Buildless_ still runs **builds**
+              * We cheat (✨) ${iconArrow} _Buildless_ still runs **builds**
 
               ---
               # The Interesting Parts
 
               * The evolution of the space.
               * Shifting to **runtime** builds.
-              * What can you actually get away with?
-                  * React?
-                  * TypeScript?
+              * What can you actually get away with? ${iconArrow}
+                React? TypeScript?
 
               ---
               # Another timeline...
@@ -229,17 +232,25 @@
               * TODO: Insert these in!!!
                   * _2017_: unpkg.com module flag, _2020_: esm.sh, _2017_: jspm.io, etc.
                   * _2018_: Deno, _2022_: Bun
-
             `}
           </${MarkdownSlideSet}>
           ${examples.modern.slides}
           <${MarkdownSlideSet}>
             ${`
-              # TODO: Problems
-              * Naming
-                * Importance of es-module-shims for early importmaps support.
-              * React
+              ---
+              # Some initial challenges
 
+              * Naming (\`next\`, \`lodash\`) ${iconArrow}
+                Import Maps
+              * The React problem (CommonJS vs. ESM) ${iconArrow}
+                ESM-savvy CDNs (✨)
+              * JSX? ${iconArrow} Meet [htm](https://esm.sh/htm) (✨)
+
+            `}
+          </${MarkdownSlideSet}>
+          ${examples.react.slides}
+          <${MarkdownSlideSet}>
+            ${`
               ---
 
               # TODO: Slides to write
