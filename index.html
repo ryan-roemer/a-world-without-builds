@@ -92,7 +92,7 @@
       } from "spectacle";
 
       import { theme, colors } from "./deck/theme.js";
-      import { logos } from "./deck/media.js";
+      import { logos, backgrounds } from "./deck/media.js";
       import { getExamples } from "./deck/examples.js";
       const html = htm.bind(createElement);
 
@@ -161,6 +161,9 @@
                 </${Heading}>
             </${FlexBox}>
           </${Slide}>
+          <${Slide} backgroundImage="url(${backgrounds.seattle})">
+            TODO
+          </${Slide}>
           <${MarkdownSlideSet}>
             ${`
               --- { "layout": "center" }
@@ -219,7 +222,8 @@
               # The Interesting Parts
 
               * The evolution of the space.
-              * Shifting to **runtime** builds.
+              * When **native** works
+              * When to shift to **runtime** builds.
               * What can you actually get away with? ${iconArrow}
                 React? TypeScript?
 
@@ -267,12 +271,20 @@
           <${MarkdownSlideSet}>
             ${`
               ---
-              # TODO: Other notes
+              # TODO: Content Notes
 
-              * Fun background images.
               * More on es-import-shims future and browser directions
               * Folks like JSPM, etc. are really pushing how much you can do without a build.
+              * Maybe a slide / quick analysis of perf
+                  * This presentation!
+                  * blogs-ai app
               * ...
+
+              ---
+              # TODO: Design Notes
+
+              * Fun background images.
+              * Use other typography for bigger single message (centered) slides
 
               ---
               # TODO: This deck
