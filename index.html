@@ -256,6 +256,42 @@
           <${MarkdownSlideSet}>
             ${`
               ---
+              # Performance
+
+              * Spoiler: it's faster to bundle
+                  * ... but how much?
+                  * ... and what does your application actually need?
+              * Let's compare a no-build/htm app vs. a fully webpack/babel-ified one!
+                  * ... in an unscientific
+                    <span style="color: ${theme.colors.secondary}">**BATTLE OF THE BUILDS**</span>
+
+              --- { "layout" : "columns" }
+
+              <!-- TODO: Images??? -->
+
+              ::section
+
+              ## No Build
+
+              - 112 requests
+              - 826 kB transferred
+              - 4.8 MB resources
+              - Finish: 257 ms
+              - DOM: 235 ms
+              - Load: 235 ms
+
+              ::section
+
+              ## A Build
+
+              - 5 requests
+              - 640 kB transferred
+              - 3.3 MB resources
+              - Finish: 154 ms
+              - DOM: 139 ms
+              - Load: 139 ms
+
+              ---
 
               # The future...
 
