@@ -1,5 +1,11 @@
 # Spectacle Component Rules
 
+## CRITICAL: No Extra Styling Rule
+
+**NEVER add `style` attributes, extra styling props, or unnecessary CSS unless specifically required for unique slide behavior that cannot be achieved with Spectacle's built-in theming and component props.**
+
+Spectacle provides comprehensive theming and styling through its component props. Default to using these built-in capabilities rather than adding custom styles.
+
 ## General Guidelines
 
 ### Use htm, not JSX
@@ -82,13 +88,18 @@ html\`<${Slide} backgroundColor="primary" textColor="secondary">
 
 - For slide titles and section headers
 - Props: `color`, `fontSize`, `fontWeight`, `textAlign`, `margin`
-- Example: `html\`<${Heading} color="secondary">Slide Title</${Heading}>\``
+- **Use theme colors**: `color="primary"`, `color="secondary"`, etc.
+- **Use semantic font sizes**: `fontSize="h1"`, `fontSize="h2"`, etc.
+- **NO inline styles**: Avoid `style` attributes for basic formatting
+- Example: `html\`<${Heading} color="secondary" fontSize="h1">Slide Title</${Heading}>\``
 
 ### Text
 
 - For body text content
 - Props: `color`, `fontSize`, `textAlign`, `margin`
-- Example: `html\`<${Text} fontSize="24px">Body content</${Text}>\``
+- **Use theme colors**: `color="primary"`, `color="secondary"`, etc.
+- **NO inline styles**: Avoid `style` attributes for text formatting
+- Example: `html\`<${Text} color="primary">Body content</${Text}>\``
 
 ### FitText
 
@@ -130,13 +141,17 @@ html\`<${UnorderedList}>
 
 - Flexbox container with Spectacle styling
 - Props: All flexbox properties plus `Space`, `Color`, `Layout`, `Position`, `Border`
+- **Use minimal props**: Only specify necessary layout properties
+- **NO extra styling**: Avoid redundant padding, margins, or positioning unless required
 - Example: `html\`<${FlexBox} justifyContent="center" alignItems="center">${content}</${FlexBox}>\``
 
 ### Box
 
 - General container component
 - Props: `Space`, `Color`, `Layout`, `Position`, `Border`
-- Example: `html\`<${Box} padding="20px" backgroundColor="tertiary">${content}</${Box}>\``
+- **Use defaults when possible**: Only add props when specifically needed
+- **NO unnecessary styling**: Avoid extra padding, colors, or borders unless required
+- Example: `html\`<${Box}>${content}</${Box}>\``
 
 ### Grid
 
@@ -422,17 +437,104 @@ html`<${Slide}
 3. **Avoid motion-inducing patterns** for users with vestibular disorders
 4. **Provide alternative text descriptions** in presenter notes if images convey meaning
 
+## Styling Rules - NO EXTRA STYLES
+
+### Critical: Avoid Inline Styles and Unnecessary Styling
+
+**DO NOT add `style` attributes or custom styling unless specifically required for unique slide behavior that cannot be achieved with Spectacle's built-in props.**
+
+#### ❌ AVOID These Styling Patterns:
+
+```javascript
+// DON'T use inline styles for basic styling
+html`<${Heading} style=${{ textTransform: "uppercase", margin: "0" }}>Title</${Heading}>`;
+html`<${Heading} style=${{ textAlign: "center", margin: "0" }}>Title</${Heading}>`;
+html`<span style=${{ color: theme.colors.primary }}>Text</span>`;
+html`<a style=${{ color, textDecoration: "none" }}>Link</a>`;
+
+// DON'T add unnecessary styling props when defaults work
+html`<${Text} fontSize="24px" margin="20px">Content</${Text}>`;
+html`<${Box} padding="20px" backgroundColor="tertiary">Content</${Box}>`;
+```
+
+#### ✅ USE These Spectacle-First Approaches:
+
+```javascript
+// Use component props that map to theme values
+html`<${Heading} color="secondary">Title</${Heading}>`;
+html`<${Heading} fontSize="h1">Title</${Heading}>`;
+html`<${Text} color="primary">Content</${Text}>`;
+
+// Use Link component instead of styled anchors
+html`<${Link} href="https://example.com" color="quaternary">Click here</${Link}>`;
+
+// Use semantic Spectacle components instead of spans with styles
+html`<${Text} color="secondary">Highlighted text</${Text}>`;
+
+// Let Spectacle handle layout with minimal props
+html`<${FlexBox} justifyContent="center" alignItems="center">${content}</${FlexBox}>`;
+html`<${Box}>${content}</${Box}>`; // Use defaults when possible
+```
+
+#### When Styling IS Acceptable:
+
+Only add custom styles when:
+
+1. **Unique slide requirements** that cannot be met with Spectacle's built-in props
+2. **Animation effects** that require specific CSS properties
+3. **Complex layouts** where Spectacle components alone are insufficient
+4. **Third-party component integration** that requires style coordination
+
+#### Preferred Styling Hierarchy:
+
+1. **First**: Use Spectacle component props (`color`, `fontSize`, `textAlign`, etc.)
+2. **Second**: Use theme values through props (`color="primary"`, `fontSize="h1"`)
+3. **Third**: Use FlexBox/Box/Grid layout components with minimal props
+4. **Last Resort**: Custom styles only when absolutely necessary for specific functionality
+
+### Theme-First Approach
+
+Always prefer theme-defined values:
+
+```javascript
+// ✅ Good - Uses theme colors
+html`<${Heading} color="secondary">Title</${Heading}>`;
+html`<${Text} color="primary">Body text</${Text}>`;
+html`<${Link} color="quaternary">Link text</${Link}>`;
+
+// ❌ Avoid - Inline color styles
+html`<span style=${{ color: theme.colors.secondary }}>Title</span>`;
+```
+
+### Layout Without Extra Styles
+
+```javascript
+// ✅ Good - Minimal, semantic layout
+html`<${FlexBox} height="100%" flexDirection="column">
+  <${Heading}>Title</${Heading}>
+  <${Text}>Content</${Text}>
+</${FlexBox}>`;
+
+// ❌ Avoid - Unnecessary styling
+html`<${FlexBox} height="100%" flexDirection="column" justifyContent="center" alignItems="center" style=${{ margin: 0 }}>
+  <${Heading} style=${{ textAlign: "center", margin: "0" }}>Title</${Heading}>
+</${FlexBox}>`;
+```
+
 ## Best Practices
 
 1. **Always use htm template literals** - Never use JSX syntax
 2. **Import components explicitly** - Don't use namespace imports
 3. **Use semantic component names** - `Heading` for titles, `Text` for body content
-4. **Leverage Appear/Stepper** - For progressive content revelation
-5. **Use consistent theming** - Apply theme objects to Deck component
-6. **Include presenter notes** - Use `Notes` component for additional context
-7. **Test in presenter mode** - Verify notes and transitions work correctly
-8. **Use templates** - Apply consistent layout with `DefaultTemplate` or custom templates
-9. **Choose appropriate backgrounds** - Follow Unsplash guidelines for professional, accessible imagery
+4. **NO extra styles unless required** - Rely on Spectacle's built-in styling and theme
+5. **Theme-first approach** - Use theme colors and typography through component props
+6. **Leverage Appear/Stepper** - For progressive content revelation
+7. **Use consistent theming** - Apply theme objects to Deck component
+8. **Minimal layout props** - Use only necessary FlexBox/Box props, avoid redundant styling
+9. **Include presenter notes** - Use `Notes` component for additional context
+10. **Test in presenter mode** - Verify notes and transitions work correctly
+11. **Use templates** - Apply consistent layout with `DefaultTemplate` or custom templates
+12. **Choose appropriate backgrounds** - Follow Unsplash guidelines for professional, accessible imagery
 
 ## Reference Links
 

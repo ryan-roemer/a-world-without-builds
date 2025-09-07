@@ -1,4 +1,6 @@
 // Nearform color palette
+// NOTE: Use these colors through Spectacle component props (color="primary")
+// rather than inline styles (style={{color: theme.colors.primary}})
 export const colors = {
   basics: {
     white: "#fff",
