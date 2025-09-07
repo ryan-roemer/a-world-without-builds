@@ -161,13 +161,15 @@
                 </${Heading}>
             </${FlexBox}>
           </${Slide}>
-          <${Slide} backgroundImage="url(${backgrounds.seattle})">
-            TODO
+          <${Slide} backgroundImage="url(${backgrounds.seattle})" backgroundOpacity=${0.5}>
+            <${FlexBox} height="100%" flexDirection="column" justifyContent="center" alignItems="center">
+              <${Heading} fontSize="150px" color="h2" style=${{ textAlign: "center", margin: "0" }}>
+                <${IconHtm} name="heart" /> CascadiaJS
+              </${Heading}>
+            </${FlexBox}>
           </${Slide}>
           <${MarkdownSlideSet}>
             ${`
-              --- { "layout": "center" }
-              <span style="font-size: 120px"><i class="ph-fill ph-heart"></i> CascadiaJS</span>
 
               --- { "layout": "center" }
               # Hi!
