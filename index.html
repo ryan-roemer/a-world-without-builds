@@ -43,6 +43,7 @@
           "react/jsx-runtime": "https://esm.sh/react@18.2.0/jsx-runtime?",
           "react-dom": "https://esm.sh/react-dom@18.2.0?",
           "react-dom/client": "https://esm.sh/react-dom@18.2.0/client?",
+          "react-dom/server": "https://esm.sh/react-dom@18.2.0/server?",
           "react-fast-compare": "https://esm.sh/react-fast-compare@^3.2.0?external=react,react-dom",
           "react-is": "https://esm.sh/react-is@^18.1.0?external=react,react-dom",
           "react-spring": "https://esm.sh/react-spring@^9.5.5?external=react,react-dom",
@@ -65,6 +66,7 @@
     <script type="module">
       import { Fragment, createElement } from "react";
       import { createRoot } from "react-dom/client";
+      import { renderToString } from "react-dom/server";
       import htm from "htm";
       // TOOD: Hone down unused imports.
       import {
@@ -92,7 +94,7 @@
       } from "spectacle";
 
       import { theme, colors } from "./deck/theme.js";
-      import { logos, backgrounds } from "./deck/media.js";
+      import { logos, logosHtm, backgrounds } from "./deck/media.js";
       import { getExamples } from "./deck/examples.js";
       const html = htm.bind(createElement);
 
@@ -113,7 +115,6 @@
 
       const template = html` <${DefaultTemplate} />`;
       const examples = await getExamples();
-      console.log(examples);
 
       // Examples presentation.
       Object.keys(examples).forEach((key) => {
@@ -168,21 +169,30 @@
               </${Heading}>
             </${FlexBox}>
           </${Slide}>
-          <${MarkdownSlideSet}>
-            ${`
-
-              --- { "layout": "center" }
-              # Hi!
-
-              ${icon("hand-waving")} I'm Ryan Roemer
-              ${logos.nearform} I lead technology & OSS at [Nearform](https://nearform.com)
-              ${icon("toolbox")} I **like** & **dislike** builds
-            `}
-          </${MarkdownSlideSet}>
+          <${Slide}
+            backgroundImage="url(${backgrounds.hi})"
+            backgroundOpacity=${0.3}
+          >
+            <${FlexBox} height="100%" flexDirection="column" justifyContent="left" alignItems="left">
+              <${Heading} fontSize="h1" color="secondary" style=${{ textAlign: "center" }}>
+                Hi!
+              </${Heading}>
+              <${Text} fontSize="h3">
+                <${IconHtm} name="hand-waving" /> I'm Ryan Roemer
+              </${Text}>
+              <${Text} fontSize="h3">
+                ${logosHtm.nearform} I lead technology & OSS at <${Link} href="https://nearform.com" fontSize="h3">Nearform</${Link}>
+              </${Text}>
+              <${Text} fontSize="h3">
+                <${IconHtm} name="toolbox" /> I <strong>like</strong> & <strong>dislike</strong> builds
+              </${Text}>
+            </${FlexBox}>
+          </${Slide}>
           <${Slide} backgroundImage="url(${backgrounds.vintageComputer})" backgroundOpacity=${0.3}>
             <${Heading} fontSize="h1">
                 Long, long ago...
               </${Heading}>
+              <!-- TODO: This timeline doesn't make sense as a timeline and needs work. -->
               <${UnorderedList}>
                 <${ListItem}>
                   <strong>1995</strong>: Hello JavaScript!
