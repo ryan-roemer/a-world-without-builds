@@ -177,14 +177,21 @@
               ${icon("hand-waving")} I'm Ryan Roemer
               ${logos.nearform} I lead technology & OSS at [Nearform](https://nearform.com)
               ${icon("toolbox")} I **like** & **dislike** builds
-
-              ---
-              # Long, long ago...
-
-              * **1995**: Hello JavaScript!
-              * **1995-2001**: We wrote JavaScript that actually executed in the browser
             `}
           </${MarkdownSlideSet}>
+          <${Slide} backgroundImage="url(${backgrounds.vintageComputer})" backgroundOpacity=${0.3}>
+            <${Heading} fontSize="h1">
+                Long, long ago...
+              </${Heading}>
+              <${UnorderedList}>
+                <${ListItem}>
+                  <strong>1995</strong>: Hello JavaScript!
+                </${ListItem}>
+                <${ListItem}>
+                  <strong>1995-2001</strong>: We wrote JavaScript that actually executed in the browser
+                </${ListItem}>
+              </${UnorderedList}>
+          </${Slide}>
           ${examples.legacy.slides}
           <${MarkdownSlideSet}>
             ${`

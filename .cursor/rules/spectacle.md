@@ -346,25 +346,58 @@ When selecting background images for slides from Unsplash (https://unsplash.com/
    - Dark backgrounds need light text colors
    - Consider your theme's color palette
 
+#### Avoiding Premium/Paid Images
+
+1. **Check image URLs carefully**:
+   - Free images use: `images.unsplash.com/photo-XXXXX`
+   - Premium images use: `plus.unsplash.com/premium_photo-XXXXX`
+   - Always avoid `plus.unsplash.com` URLs as they require Unsplash+ subscription
+
+2. **Verify license status**:
+   - Look for "Free to use under the Unsplash License" on the image page
+   - Avoid images marked as "Licensed under the Unsplash+ License"
+   - When in doubt, search for alternative free images
+
+3. **Test image accessibility**:
+   - Always verify images load properly before committing
+   - Premium images may show watermarks or fail to load for users without subscriptions
+
+4. **Media organization**:
+   - Store all image URLs in dedicated media files (e.g., `deck/media.js`)
+   - Use structured objects like `backgrounds.imageName` for easy maintenance
+   - Group related images logically (backgrounds, logos, illustrations)
+
 #### Implementation in Spectacle
 
 ```javascript
+// 1. First, organize images in deck/media.js
+export const backgrounds = {
+  seattle: "https://images.unsplash.com/photo-1589481169991-40ee02888551...",
+  vintageComputer:
+    "https://images.unsplash.com/photo-1711346105258-bbb9136592d7...",
+  // Always use images.unsplash.com, never plus.unsplash.com
+};
+
+// 2. Import in your presentation file
+import { backgrounds } from "./deck/media.js";
+
+// 3. Use in slides
 // Deck-level background (applies to all slides)
 html`<${Deck}
   theme=${theme}
-  backgroundImage="url('https://images.unsplash.com/photo-id')"
+  backgroundImage="url(${backgrounds.seattle})"
 >
   ${slides}
 </${Deck}>`;
 
 // Individual slide background
 html`<${Slide}
-  backgroundImage="url('https://images.unsplash.com/photo-id')"
-  backgroundSize="cover"
-  backgroundPosition="center"
-  backgroundOpacity=${0.9}
+  backgroundImage="url(${backgrounds.vintageComputer})"
+  backgroundOpacity=${0.3}
 >
-  <${Heading} color="white">Title with Background</${Heading}>
+  <${Heading}>
+    Title with Background
+  </${Heading}>
 </${Slide}>`;
 ```
 
