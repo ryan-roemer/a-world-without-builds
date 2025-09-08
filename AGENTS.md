@@ -1,27 +1,30 @@
-# Cursor Rules for A World Without Builds Project
+# Project Instructions
 
-## Spectacle Presentation Rules
+## Core Principles
 
-When working with Spectacle presentations:
+- **No Build Tools**: Use native ES modules and modern browser features
+- **Spectacle-First**: Leverage built-in theming and component props
+- **Clean Code**: Write maintainable, readable code with minimal complexity
 
-1. **NO EXTRA STYLING**: Never add `style` attributes or unnecessary styling unless specifically required for unique slide behavior that cannot be achieved with Spectacle's built-in props and theming.
+## Spectacle Guidelines
 
-2. **Theme-First Approach**: Use Spectacle's theme system and component props instead of custom styles:
-   - Use `color="primary"` instead of `style={{ color: theme.colors.primary }}`
-   - Use `fontSize="h1"` instead of `style={{ fontSize: "150px" }}`
-   - Use `textAlign="center"` prop instead of `style={{ textAlign: "center" }}`
+- **NO extra styling** - Use component props instead of `style` attributes
+- **Theme-first approach** - Use `color="primary"` not `style={{ color: theme.colors.primary }}`
+- **HTM templates** - Always use `htm` with template literals, never JSX
+- **Minimal props** - Only specify necessary layout properties
 
-3. **Minimal Layout Props**: When using FlexBox, Box, or Grid components, only specify necessary layout properties. Avoid redundant styling.
+## Code Style
 
-4. **Component-First**: Use semantic Spectacle components (Heading, Text, Link) instead of HTML elements with inline styles.
+- Use ES6+ features (const/let, arrow functions, destructuring)
+- Follow consistent naming conventions (camelCase, PascalCase)
+- Keep functions small and focused
+- Use semantic HTML and meaningful class names
 
-5. **HTM Template Literals**: Always use `htm` with template literals, never JSX syntax.
+## File Organization
 
-## Code Generation Guidelines
+- Group related files in logical directories
+- Use descriptive file names with kebab-case
+- Separate concerns (presentation, data, utilities)
+- Keep modules focused and cohesive
 
-- Default to using built-in component capabilities
-- Only add custom styling when explicitly requested for functionality that cannot be achieved through standard props
-- Prefer theme-defined values over hardcoded styles
-- Keep presentations clean and maintainable by avoiding unnecessary complexity
-
-Refer to `.cursor/rules/spectacle.md` for detailed Spectacle component usage guidelines.
+For detailed guidelines, see `.cursor/rules/` directory.

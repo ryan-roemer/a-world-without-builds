@@ -1,3 +1,9 @@
+---
+description: Spectacle presentation component guidelines and styling rules
+globs: ["**/*.js", "**/*.ts", "**/deck/**", "**/examples/**"]
+alwaysApply: false
+---
+
 # Spectacle Component Rules
 
 ## CRITICAL: No Extra Styling Rule
@@ -89,9 +95,9 @@ html\`<${Slide} backgroundColor="primary" textColor="secondary">
 - For slide titles and section headers
 - Props: `color`, `fontSize`, `fontWeight`, `textAlign`, `margin`
 - **Use theme colors**: `color="primary"`, `color="secondary"`, etc.
-- **Use semantic font sizes**: `fontSize="h1"`, `fontSize="h2"`, etc.
+- **Use standard font sizes**: `fontSize="24px"`, `fontSize="32px"`, etc.
 - **NO inline styles**: Avoid `style` attributes for basic formatting
-- Example: `html\`<${Heading} color="secondary" fontSize="h1">Slide Title</${Heading}>\``
+- Example: `html\`<${Heading} color="secondary" fontSize="32px">Slide Title</${Heading}>\``
 
 ### Text
 
@@ -140,7 +146,7 @@ html\`<${UnorderedList}>
 ### FlexBox
 
 - Flexbox container with Spectacle styling
-- Props: All flexbox properties plus `Space`, `Color`, `Layout`, `Position`, `Border`
+- Props: Standard flexbox properties (`justifyContent`, `alignItems`, `flexDirection`, etc.)
 - **Use minimal props**: Only specify necessary layout properties
 - **NO extra styling**: Avoid redundant padding, margins, or positioning unless required
 - Example: `html\`<${FlexBox} justifyContent="center" alignItems="center">${content}</${FlexBox}>\``
@@ -148,7 +154,7 @@ html\`<${UnorderedList}>
 ### Box
 
 - General container component
-- Props: `Space`, `Color`, `Layout`, `Position`, `Border`
+- Props: Standard layout properties (`padding`, `margin`, `backgroundColor`, etc.)
 - **Use defaults when possible**: Only add props when specifically needed
 - **NO unnecessary styling**: Avoid extra padding, colors, or borders unless required
 - Example: `html\`<${Box}>${content}</${Box}>\``
@@ -462,7 +468,7 @@ html`<${Box} padding="20px" backgroundColor="tertiary">Content</${Box}>`;
 ```javascript
 // Use component props that map to theme values
 html`<${Heading} color="secondary">Title</${Heading}>`;
-html`<${Heading} fontSize="h1">Title</${Heading}>`;
+html`<${Heading} fontSize="32px">Title</${Heading}>`;
 html`<${Text} color="primary">Content</${Text}>`;
 
 // Use Link component instead of styled anchors
@@ -488,7 +494,7 @@ Only add custom styles when:
 #### Preferred Styling Hierarchy:
 
 1. **First**: Use Spectacle component props (`color`, `fontSize`, `textAlign`, etc.)
-2. **Second**: Use theme values through props (`color="primary"`, `fontSize="h1"`)
+2. **Second**: Use theme values through props (`color="primary"`, `fontSize="32px"`)
 3. **Third**: Use FlexBox/Box/Grid layout components with minimal props
 4. **Last Resort**: Custom styles only when absolutely necessary for specific functionality
 
@@ -541,3 +547,14 @@ html`<${FlexBox} height="100%" flexDirection="column" justifyContent="center" al
 - Official docs: https://nearform.com/open-source/spectacle/docs/
 - API reference: https://nearform.com/open-source/spectacle/docs/api-reference
 - GitHub: https://github.com/FormidableLabs/spectacle
+- Props documentation: https://github.com/FormidableLabs/spectacle/blob/main/docs/props.md
+
+## Verification Status
+
+This documentation has been verified against the official Spectacle documentation as of 2024. Key verified components and props:
+
+- ✅ `color` prop exists for `Text`, `Heading`, `Link`, `Quote`, `CodeSpan`, and table components
+- ✅ `backgroundColor`/`bg` props exist for the same components
+- ✅ Basic component structure and imports are accurate
+- ⚠️ Some advanced component props (Appear, Stepper, CodePane) may need additional verification
+- ⚠️ Layout component prop categories (Space, Color, Layout, Position, Border) need further verification
