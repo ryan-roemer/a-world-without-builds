@@ -168,7 +168,7 @@
             backgroundColor="${colors.basics.black}"
           >
             <${FlexBox} height="100%" flexDirection="column" justifyContent="center" alignItems="center">
-              <${Heading} fontSize="150px" color="h2" style=${{ textAlign: "center", margin: "0" }}>
+              <${Heading} fontSize="150px" color="primary">
                 <${IconHtm} name="heart" /> CascadiaJS
               </${Heading}>
             </${FlexBox}>
@@ -193,6 +193,18 @@
               </${Text}>
             </${FlexBox}>
           </${Slide}>
+                    <${MarkdownSlideSet}>
+            ${`
+              ---
+              # Let's talk
+
+              * The Past
+              * The Present
+              * The (less obvious) Present
+              * The Future
+
+            `}
+          </${MarkdownSlideSet}>
           <${Slide}
             backgroundImage="url(${backgrounds.vintageComputer})"
             backgroundOpacity=${0.4}
