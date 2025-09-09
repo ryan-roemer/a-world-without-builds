@@ -29,7 +29,9 @@ export const getExamples = async () => {
     examples[key.toLocaleLowerCase()] = {
       name: key,
       path: html.replace("index.html", ""),
+      codeFileName: code.split("/").pop(),
       code: await fetch(code).then((res) => res.text()),
+      htmlFileName: html.split("/").pop(),
       html: await fetch(html)
         .then((res) => res.text())
         .then((html) => {

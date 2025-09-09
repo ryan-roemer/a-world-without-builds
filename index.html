@@ -118,25 +118,26 @@
 
       // Examples presentation.
       Object.keys(examples).forEach((key) => {
-        examples[key].slides = html`
+        const ex = examples[key];
+        ex.slides = html`
           <${Fragment} key=${key}>
             <${Slide}>
               <${Heading} fontSize="h3">
-                ${examples[key].name}
-                <span style=${{ color: theme.colors.primary }}> - Code </span>
-                <${IconLink} href=${examples[key].path} name="link" color=${theme.colors.primary} />
+                ${ex.name} -
+                ${" "}<code style=${{ color: theme.colors.primary }}>${ex.codeFileName}</code>
+                ${" "}<${IconLink} href=${ex.path} name="link" color=${theme.colors.quaternary} />
               </${Heading}>
               <${CodePane} language="${key === "typescript" ? "typescript" : "javascript"}">
-                ${examples[key].code}
+                ${ex.code}
               </${CodePane}>
             </${Slide}>
-            ${examples[key].html.map(
+            ${ex.html.map(
               (block, index, items) => html`
               <${Slide} key=${index}>
                 <${Heading} fontSize="h3">
-                  ${examples[key].name}
-                  <span style=${{ color: theme.colors.primary }}> - HTML${items.length > 1 ? ` (${index + 1})` : ""} </span>
-                  <${IconLink} href=${examples[key].path} name="link" color=${theme.colors.primary} />
+                  ${ex.name} ${items.length > 1 ? ` (${index + 1})` : ""} -
+                  ${" "}<code style=${{ color: theme.colors.primary }}>${ex.htmlFileName}</code>
+                  ${" "}<${IconLink} href=${ex.path} name="link" color=${theme.colors.secondary} />
                 </${Heading}>
                 <${CodePane} language="html">${block}</${CodePane}>
               </${Slide}>
@@ -193,7 +194,7 @@
               </${Text}>
             </${FlexBox}>
           </${Slide}>
-                    <${MarkdownSlideSet}>
+          <${MarkdownSlideSet}>
             ${`
               ---
               # Let's talk
@@ -223,6 +224,13 @@
                 </${ListItem}>
               </${UnorderedList}>
           </${Slide}>
+          <${MarkdownSlideSet}>
+            ${`
+              --- { "layout": "center" }
+              # And it looked like this...
+
+            `}
+          </${MarkdownSlideSet}>
           ${examples.legacy.slides}
           <${MarkdownSlideSet}>
             ${`
