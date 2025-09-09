@@ -91,6 +91,7 @@
         Notes,
         DefaultTemplate,
         SlideLayout,
+        SpectacleLogo,
       } from "spectacle";
 
       import { theme, colors } from "./deck/theme.js";
@@ -112,6 +113,8 @@
           ><${IconHtm} name=${name} fill=${fill}
         /></a>
       `;
+      const mdEmphasis = (text) =>
+        `<span style="color: ${theme.colors.secondary};">${text}</span>`;
 
       const template = html` <${DefaultTemplate} />`;
       const examples = await getExamples();
@@ -194,6 +197,14 @@
               </${Text}>
             </${FlexBox}>
           </${Slide}>
+          <${Slide}>
+            <${FlexBox} height="100%">
+              <${Link} href="https://nearform.com/open-source/spectacle">
+                <${SpectacleLogo} size=${500} />
+              </${Link}>
+            </${FlexBox}>
+
+          </${Slide}>
           <${MarkdownSlideSet}>
             ${`
               ---
@@ -232,14 +243,18 @@
             `}
           </${MarkdownSlideSet}>
           ${examples.legacy.slides}
-          <${MarkdownSlideSet}>
+          <${MarkdownSlideSet} animateListItems=${true}>
             ${`
               ---
               # And then ...
 
-              * **2001**: JSMin is introduced
-              * **2010-2015**: The bundlers (_2010_: RequireJS, _2011_: Browserify, _2012_: Webpack, ...)
-              * **2015-on**: The modern bundlers (_2015_: Rollup, _2017_: Parcel, _2020_: Vite, ...)
+              * **2001**: A ${mdEmphasis("**minifier**")}! (_JSMin_)
+              * **2010-2015**: ${mdEmphasis("**Bundlers**")}!
+                  * _RequireJS_, _Browserify_, _Webpack_, ...
+                  <!-- (_2010_: RequireJS, _2011_: Browserify, _2012_: Webpack, ...) -->
+              * **2015-on**: ${mdEmphasis("**Fancier bundlers**")}
+                  * _Rollup_, _Parcel_, _Vite_, ...
+                  <!-- (_2015_: Rollup, _2017_: Parcel, _2020_: Vite, ...) -->
 
               ---
               # And now...
@@ -264,7 +279,7 @@
               * This is just a timeline and greatest hits.
                   * Skipping over a ton of technical detail.
               * Most large scale web apps probably still **need builds**
-              * We cheat (✨) ${iconArrow} _Buildless_ still runs **builds**
+              * We cheat! (✨) ${iconArrow} _Buildless_ still runs **builds**
 
               ---
               # The Interesting Parts
@@ -275,34 +290,110 @@
               * What can you actually get away with? ${iconArrow}
                 React? TypeScript?
 
-              ---
+              --- { "layout": "center" }
               # Another timeline...
 
-              * **2015**: ECMAScript Modules (ESM) released
-              * **2018**: \`es-module-shims\` started
-              * **2021**: Import Maps start to be supported
-              * TODO: Insert these in!!!
-                  * _2017_: unpkg.com module flag, _2020_: esm.sh, _2017_: jspm.io, etc.
-                  * _2018_: Deno, _2022_: Bun
+              That's a bit less well-known and a bit bumpy...
+
+              ---
+              # **2015**: ECMAScript Modules (ESM)
+
+              Named exports
+
+              \`\`\`js
+              export const users = [ ... ];
+              \`\`\`
+
+              Static and dynamic imports
+              \`\`\`js
+              // Static import
+              import { users } from "./users.js";
+
+              // Dynamic import
+              const { users } = await import("./users.js");
+              \`\`\`
+
+              --- { "layout": "center" }
+              # Let's see it!
+
             `}
           </${MarkdownSlideSet}>
           ${examples.modern.slides}
           <${MarkdownSlideSet}>
             ${`
-              ---
-              # Some initial challenges
+              --- { "layout": "center" }
+              # Yay!
 
-              * Naming (\`next\`, \`lodash\`) ${iconArrow}
-                Import Maps
-              * The React problem (CommonJS vs. ESM) ${iconArrow}
-                ESM-savvy CDNs (✨)
-              * JSX? ${iconArrow} Meet [htm](https://github.com/developit/htm) (✨)
+              --- { "layout": "center" }
+              # Ok, then we hit all the hard parts...
+
+              ---
+              # **2018**: Import Maps
+
+              The problem
+
+              \`\`\`js
+              import lodash from "lodash";
+              \`\`\`
+
+              The solution
+
+              \`\`\`html
+              <${""}script type="importmap">
+                {
+                  "imports": {
+                    "lodash": "https://esm.sh/lodash@^4.17.21"
+                  }
+                }
+              <${""}/script>
+              \`\`\`
+
+              ---
+              # **2018**: Import Maps II
+
+              The problem: ${mdEmphasis("**NONE OF THAT IS IMPLEMENTED YET**")}
+
+              The solution: ${icon("github-logo")}[\`es-module-shims\`](https://github.com/guybedford/es-module-shims)
+
+              \`\`\`html
+              <!-- ✨ Checkout the '-shim' suffix -->
+              <${""}script type="importmap-shim">
+                {
+                  "imports": {
+                    "lodash": "https://esm.sh/lodash@^4.17.21"
+                  }
+                }
+              <${""}/script>
+              \`\`\`
+
+              ---
+              # **2021**: Import Maps III
+
+              OK, now they finally start to be supported.
+
+              ---
+              # **2017+**: CDNs
+
+              The problem: \`react\` only ships CommonJS.
+
+              The solution: CDNs get more savvy with lazy ESM conversion (✨).
+
+              Enter \`esm.sh\`, \`jspm.io\`, \`unpkg.com\`, ...
+
+              <!-- _2017_: unpkg.com module flag, _2020_: esm.sh, _2017_: jspm.io, etc. -->
+              <!-- _2018_: Deno, _2022_: Bun -->
+
+              --- { "layout": "center" }
+              # Let's ship a React app!
 
             `}
           </${MarkdownSlideSet}>
           ${examples.react.slides}
-          <${MarkdownSlideSet}>
+          <${MarkdownSlideSet} animateListItems=${true}>
             ${`
+              --- { "layout": "center" }
+              # How about the real world?
+
               ---
               # Performance
 
@@ -339,50 +430,38 @@
               - DOM: 139 ms
               - Load: 139 ms
 
-              ---
+              --- { "layout": "center" }
+              # What comes next?
 
-              # The future...
+              We've seen the ESM-friendly world of the present.
 
-              * Runtimes / "the platforms" continue to evolve
-                * _Frontend_: \`es-module-shims\`, Web Components
-                * _Backend_: Node.js, Deno, Bun
-              * TypeScript, WASM
-              * Where might we head next?
+              Where might we head next?
 
+              Notes: \
+                Technologies and companies like es-module-shims, JSPM, etc. are \
+                really pushing how much you can do without a build.
+
+              --- { "layout": "center" }
+              # What can we get away with?
             `}
           </${MarkdownSlideSet}>
           ${examples.typescript.slides}
           <${MarkdownSlideSet}>
             ${`
-              ---
-              # TODO: Content Notes
-
-              * More on es-import-shims future and browser directions
-              * Folks like JSPM, etc. are really pushing how much you can do without a build.
-              * Maybe a slide / quick analysis of perf
-                  * This presentation!
-                  * blogs-ai app
-              * ...
-
-              ---
-              # TODO: Design Notes
-
-              * Fun background images.
-              * Use other typography for bigger single message (centered) slides
-
-              ---
-              # TODO: This deck
-
-              * Spectacle link
-              * This deck link
-              * Look at the import map
-
               --- { "layout": "center" }
-              # TODO: Thanks
+              # Go play around!
 
-              [ryan-roemer.github.io/a-world-without-builds](https://ryan-roemer.github.io/a-world-without-builds/)
+              ${icon("browser")} [ryan-roemer.github.io/a-world-without-builds](https://ryan-roemer.github.io/a-world-without-builds/)
 
               ${icon("github-logo")} [ryan-roemer/a-world-without-builds](https://github.com/ryan-roemer/a-world-without-builds)
+
+              Notes: \
+                You've probable guessed the spoiler here...\
+                This Spectacle deck is a no-build React application that uses htm!
+
+              --- { "layout": "center" }
+              # Thanks!
+
               ${icon("twitter-logo")} [@ryan_roemer](https://x.com/ryan_roemer)
               ${icon("butterfly")} [@ryan-roemer.bsky.social](https://bsky.app/profile/ryan-roemer.bsky.social)
               ${icon("linkedin-logo")} [in/ryanroemer](https://www.linkedin.com/in/ryanroemer/)
