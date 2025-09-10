@@ -353,13 +353,13 @@
               ---
               # **2018**: Import Maps
 
-              The problem:
+              ${mdEmphasis("The problem")}: bare specifiers (aka \`"lodash"\`)
 
               \`\`\`js
               import lodash from "lodash"; // ⚠️ Doesn't work
               \`\`\`
 
-              The solution:
+              ${mdEmphasis("The solution")}: map a bare specifier to a URL
               <!-- March 2018 first repo
                    https://github.com/WICG/import-maps/blob/2ed3a0c6acb196d2469cbb5e0fc064276d0fe5dc/README.md
                 -->
@@ -377,9 +377,9 @@
               ---
               # **2018**: Import Maps II
 
-              The problem: ${mdEmphasis("**NONE OF THAT IS IMPLEMENTED YET**")}
+              ${mdEmphasis("The problem")}: **NONE OF THIS IS IMPLEMENTED YET**
 
-              The solution: [\`es-module-shims\`](https://github.com/guybedford/es-module-shims)
+              ${mdEmphasis("The solution")}: [\`es-module-shims\`](https://github.com/guybedford/es-module-shims)
 
               \`\`\`html
               <!-- ✨ Check out the '-shim' suffix -->
@@ -400,9 +400,9 @@
               ---
               # **2017+**: CDNs
 
-              The problem: ⚠️ \`react\` only ships CommonJS.
+              ${mdEmphasis("The problem")}: \`react\` only ships CommonJS.
 
-              The solution: CDNs get more savvy with lazy ESM conversion (✨).
+              ${mdEmphasis("The solution")}: CDNs get more savvy with lazy ESM conversion (✨).
 
               Enter \`esm.sh\`, \`jspm.io\`, \`unpkg.com\`, ...
 
