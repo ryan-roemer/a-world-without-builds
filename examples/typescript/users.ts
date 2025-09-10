@@ -1,3 +1,4 @@
+// 💡 TypeScript types!
 interface User {
   name: string;
   age: number;

@@ -16,10 +16,8 @@
     <div id="root"></div>
 
     <!-- scripts -->
-    <script
-      async
-      src="https://ga.jspm.io/npm:es-module-shims@2.6.2/dist/es-module-shims.js"
-    ></script>
+    <!-- ✨ Add the shims -->
+    <script src="https://ga.jspm.io/npm:es-module-shims@2.6.2/dist/es-module-shims.js"></script>
 
     <!-- ✨ `lang="ts"` is cheating  -->
     <!-- 💡 `type="module-shim"` skips native check -->
@@ -27,7 +25,6 @@
       // ✨ Can import `.ts`
       import { users } from "./users.ts";
 
-      // 💡 TypeScript types!
       const root = document.getElementById("root") as HTMLElement;
       root.innerHTML = users.map((u) => `<p>${u.name} (${u.age})</p>`).join("");
     </script>
