@@ -20,6 +20,12 @@
       type="text/css"
       href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/fill/style.css"
     />
+    <style>
+      /* HACK: hack off generated class names */
+      .enpNOd > code {
+        color: #aaa; /* grey[30] */
+      }
+    </style>
     <title>A World Without Builds</title>
   </head>
   <body>
@@ -362,7 +368,7 @@
 
               The problem: ${mdEmphasis("**NONE OF THAT IS IMPLEMENTED YET**")}
 
-              The solution: ${icon("github-logo")}[\`es-module-shims\`](https://github.com/guybedford/es-module-shims)
+              The solution: [\`es-module-shims\`](https://github.com/guybedford/es-module-shims)
 
               \`\`\`html
               <!-- ✨ Check out the '-shim' suffix -->
@@ -416,6 +422,7 @@
               --- { "layout" : "columns" }
 
               <!-- TODO: Images??? -->
+              <!-- TODO: appear one column, then the other -->
 
               ::section
 
