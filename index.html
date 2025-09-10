@@ -225,17 +225,17 @@
               ---
               # Let's talk
 
-              * The Past
-              * The Present
-              * The (less obvious) Present
-              * The Future
+              * The past
+              * The builds of present
+              * The (less obvious) present
+              * The buildless future?
 
               ---
               # Head's up
 
-              ⚠️ - It's old and/or a problem.
-              💡 - Neat stuff that works.
-              ✨ - We are cheating.
+              ⚠️ - It's old and/or a problem
+              💡 - Neat stuff that works
+              ✨ - We are cheating
             `}
           </${MarkdownSlideSet}>
           <${Slide}
@@ -296,19 +296,18 @@
               ---
               # Spoilers
 
-              * This is just a timeline and greatest hits.
-                  * Skipping over a ton of technical detail.
+              * This is just a timeline and greatest hits
+              * Skipping over a ton of technical detail
               * Most large scale web apps probably still **need builds**
               * _Buildless_ still runs **builds** (✨)
 
               ---
               # The Interesting Parts
 
-              * The evolution of the space.
-              * When **native** works
-              * When to shift to **runtime** builds.
+              * What works **natively**?
+              * When can we shift to **runtime** builds?
               * What can you actually get away with? ${iconArrow}
-                React? TypeScript?
+                React?
 
               ---
               # Another timeline...
@@ -334,7 +333,7 @@
               \`\`\`
 
               --- { "layout": "center" }
-              # Let's see it!
+              # Let's see these new modules!
 
             `}
           </${MarkdownSlideSet}>
@@ -350,10 +349,10 @@
               ---
               # **2018**: Import Maps
 
-              The problem
+              The problem:
 
               \`\`\`js
-              import lodash from "lodash";
+              import lodash from "lodash"; // ⚠️ Doesn't work
               \`\`\`
 
               The solution:
@@ -397,7 +396,7 @@
               ---
               # **2017+**: CDNs
 
-              The problem: \`react\` only ships CommonJS.
+              The problem: ⚠️ \`react\` only ships CommonJS.
 
               The solution: CDNs get more savvy with lazy ESM conversion (✨).
 
