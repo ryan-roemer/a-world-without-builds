@@ -230,6 +230,12 @@
               * The (less obvious) Present
               * The Future
 
+              ---
+              # Head's up
+
+              ⚠️ - It's old and/or a problem.
+              💡 - Neat stuff that works.
+              ✨ - We are cheating.
             `}
           </${MarkdownSlideSet}>
           <${Slide}
@@ -283,7 +289,7 @@
               --- { "layout": "center" }
               # And that's OK!
 
-              --- { "layout": "center" }
+              ---
               # But...
 
               How far could we go without a build?
@@ -294,7 +300,7 @@
               * This is just a timeline and greatest hits.
                   * Skipping over a ton of technical detail.
               * Most large scale web apps probably still **need builds**
-              * We cheat! (✨) ${iconArrow} _Buildless_ still runs **builds**
+              * _Buildless_ still runs **builds** (✨)
 
               ---
               # The Interesting Parts
@@ -305,7 +311,7 @@
               * What can you actually get away with? ${iconArrow}
                 React? TypeScript?
 
-              --- { "layout": "center" }
+              ---
               # Another timeline...
 
               That's a bit less well-known and a bit bumpy...
@@ -351,7 +357,10 @@
               import lodash from "lodash";
               \`\`\`
 
-              The solution
+              The solution:
+              <!-- March 2018 first repo
+                   https://github.com/WICG/import-maps/blob/2ed3a0c6acb196d2469cbb5e0fc064276d0fe5dc/README.md
+                -->
 
               \`\`\`html
               <${""}script type="importmap">
@@ -415,10 +424,15 @@
               * Spoiler: it's faster to bundle
                   * ... but how much?
                   * ... and what does your application actually need?
-              * Let's compare a no-build/htm app vs. a fully webpack/babel-ified one!
-                  * ... in an unscientific
-                    <span style="color: ${theme.colors.secondary}">**BATTLE OF THE BUILDS**</span>
+              * Let's compare build vs. no build in an unscientific...
 
+              --- { "layout": "center" }
+              # **BATTLE OF THE BUILDS**
+
+            `}
+          </${MarkdownSlideSet}>
+          <${MarkdownSlideSet}>
+            ${`
               --- { "layout" : "columns" }
 
               <!-- TODO: Images??? -->
@@ -446,19 +460,21 @@
               - DOM: 139 ms
               - Load: 139 ms
 
-              --- { "layout": "center" }
-              # What comes next?
+            `}
+          </${MarkdownSlideSet}>
+          <${MarkdownSlideSet} animateListItems=${true}>
+            ${`
+              ---
+              # Where might we head next?
 
-              We've seen the ESM-friendly world of the present.
-
-              Where might we head next?
+              * JSON / CSS modules
+              * WASM modules
+              * Hot reload
+              * TypeScript!?
 
               Notes: \
                 Technologies and companies like es-module-shims, JSPM, etc. are \
                 really pushing how much you can do without a build.
-
-              --- { "layout": "center" }
-              # What can we get away with?
             `}
           </${MarkdownSlideSet}>
           ${examples.typescript.slides}
