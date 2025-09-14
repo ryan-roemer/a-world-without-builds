@@ -222,18 +222,24 @@
                 </${Link}>
               </${Text}>
             </${FlexBox}>
-
+          </${Slide}>
+          <${Slide}
+            backgroundImage="url(${backgrounds.history})"
+            backgroundOpacity=${0.4}
+            backgroundColor="${colors.basics.black}"
+          >
+            <${Heading} color="secondary">
+                And now on to the show...
+              </${Heading}>
+              <${UnorderedList}>
+                <${ListItem}>The past</${ListItem}>
+                <${ListItem}>The builds of present</${ListItem}>
+                <${ListItem}>Another present</${ListItem}>
+                <${ListItem}>The buildless future?</${ListItem}>
+              </${UnorderedList}>
           </${Slide}>
           <${MarkdownSlideSet}>
             ${`
-              ---
-              # And now on to the show...
-
-              * The past
-              * The builds of present
-              * Another present
-              * The buildless future?
-
               ---
               # Head's up
 
