@@ -282,7 +282,7 @@
 
               We run **minified, heavily transformed** code.
 
-              Builds are **complicated** and **time-consuming**.
+              We no longer _run_ the code we _write_.
 
               --- { "layout": "center" }
               # And that's OK!
@@ -305,9 +305,10 @@
               # The Interesting Parts
 
               * What works **natively**?
-              * When can we shift to **runtime** builds? (e.g. in the CDN)
-              * What can you actually get away with? ${iconArrow}
-                React?
+                * No webpack/vite, no TypeScript/JSX/Babel, ...
+                * Just the **real JavaScript** we wrote executing in a browser?
+              * When can we push the build to **runtime** (e.g. CDN)?
+              * What can you actually get away with (e.g. React)?
 
               ---
               # Another timeline...
@@ -440,23 +441,37 @@
 
               ## No Build
 
-              - 112 requests
+              - **Bigger**:
+                - 112 requests
+                - 826 kB
+              - **Slower**: 250 ms
+
+              <!--
+              - **Smaller**:112 requests
               - 826 kB transferred
               - 4.8 MB resources
               - Finish: 257 ms
               - DOM: 235 ms
               - Load: 235 ms
+              -->
 
               ::section
 
               ## A Build
 
+              - **Smaller**:
+                - 5 requests
+                - 640 kB
+              - **Faster** 150 ms
+
+              <!--
               - 5 requests
               - 640 kB transferred
               - 3.3 MB resources
               - Finish: 154 ms
               - DOM: 139 ms
               - Load: 139 ms
+              -->
 
             `}
           </${MarkdownSlideSet}>
@@ -465,10 +480,12 @@
               ---
               # Where might we head next?
 
-              * JSON / CSS modules
-              * WASM modules
-              * Hot reload
-              * TypeScript!?
+              * The future that _will be_
+                * JSON / CSS modules
+                * WASM modules
+              * The future that _could be_ (✨ \`es-module-shims\`)
+                * Hot reload
+                * TypeScript!?
 
               Notes: \
                 Technologies and companies like es-module-shims, JSPM, etc. are \
@@ -481,8 +498,10 @@
               --- { "layout": "center" }
               # Go play around!
 
+              See the deck at:
               ${icon("browser")} [ryan-roemer.github.io/a-world-without-builds](https://ryan-roemer.github.io/a-world-without-builds/)
 
+              ...and check out the code at:
               ${icon("github-logo")} [ryan-roemer/a-world-without-builds](https://github.com/ryan-roemer/a-world-without-builds)
 
               Notes: \
