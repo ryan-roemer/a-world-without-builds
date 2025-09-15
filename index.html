@@ -233,21 +233,10 @@
               </${Heading}>
               <${UnorderedList}>
                 <${ListItem}>The past</${ListItem}>
-                <${ListItem}>The builds of present</${ListItem}>
-                <${ListItem}>Another present</${ListItem}>
+                <${ListItem}>The present (in two ways)</${ListItem}>
                 <${ListItem}>The buildless future?</${ListItem}>
               </${UnorderedList}>
           </${Slide}>
-          <${MarkdownSlideSet}>
-            ${`
-              ---
-              # Head's up
-
-              ⚠️ - It's old and/or a problem
-              💡 - Neat stuff that works
-              ✨ - We are cheating
-            `}
-          </${MarkdownSlideSet}>
           <${Slide}
             backgroundImage="url(${backgrounds.vintageComputer})"
             backgroundOpacity=${0.4}
@@ -309,13 +298,14 @@
               * This is just a timeline and greatest hits
               * Skipping over a ton of technical detail
               * Most large scale web apps probably still **need builds**
-              * _Buildless_ still runs **builds** (✨)
+              * We cheat (✨)
+                * _Buildless_ still runs **builds**
 
               ---
               # The Interesting Parts
 
               * What works **natively**?
-              * When can we shift to **runtime** builds?
+              * When can we shift to **runtime** builds? (e.g. in the CDN)
               * What can you actually get away with? ${iconArrow}
                 React?
 
