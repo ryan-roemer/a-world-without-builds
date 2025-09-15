@@ -132,9 +132,17 @@
       // Examples presentation.
       Object.keys(examples).forEach((key) => {
         const ex = examples[key];
+        const backgroundOpts = !ex.background
+          ? {}
+          : {
+              backgroundImage: `url(${backgrounds[ex.background]})`,
+              backgroundOpacity: 0.4,
+              backgroundColor: colors.basics.black,
+            };
+
         ex.slides = html`
           <${Fragment} key=${key}>
-            <${Slide}>
+            <${Slide} ...${backgroundOpts}>
               <${Heading} fontSize="h3">
                 ${ex.name} -
                 ${" "}<code style=${{ color: theme.colors.primary }}>${ex.codeFileName}</code>
@@ -146,7 +154,7 @@
             </${Slide}>
             ${ex.html.map(
               (block, index, items) => html`
-              <${Slide} key=${index}>
+              <${Slide} key=${index} ...${backgroundOpts}>
                 <${Heading} fontSize="h3">
                   ${ex.name} ${items.length > 1 ? ` (${index + 1})` : ""} -
                   ${" "}<code style=${{ color: theme.colors.primary }}>${ex.htmlFileName}</code>
@@ -287,12 +295,18 @@
               --- { "layout": "center" }
               # And that's OK!
 
-              ---
-              # But...
-
-              How far could we go without a build?
-
-              ---
+            `}
+          </${MarkdownSlideSet}>
+          <${Slide}>
+            <${Heading} fontSize="h1">
+                But...
+              </${Heading}>
+              <${Text} fontSize="h3" textAlign="center">
+                How far could we go without a build?
+              </${Text}>
+          </${Slide}>
+          <${MarkdownSlideSet} animateListItems=${true}>
+            ${`
               # Spoilers
 
               * This is just a timeline and greatest hits
@@ -309,12 +323,18 @@
                 * Just the **real JavaScript** we wrote executing in a browser?
               * When can we push the build to **runtime** (e.g. CDN)?
               * What can you actually get away with (e.g. React)?
-
-              ---
-              # Another timeline...
-
-              That's a bit less well-known and a bit bumpy...
-
+            `}
+          </${MarkdownSlideSet}>
+          <${Slide}>
+            <${Heading} fontSize="h1">
+                Another timeline...
+              </${Heading}>
+              <${Text} textAlign="center">
+                That's a bit less well-known and a bit bumpy...
+              </${Text}>
+          </${Slide}>
+          <${MarkdownSlideSet} animateListItems=${true}>
+            ${`
               ---
               # **2015**: ECMAScript Modules (ESM)
 

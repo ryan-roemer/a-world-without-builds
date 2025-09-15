@@ -7,6 +7,8 @@ const EXAMPLES_PATHS = {
   Legacy: {
     code: "./examples/legacy/users.js",
     html: "./examples/legacy/index.html",
+    // TODO: Decide if want this background here!
+    background: "floppies",
   },
   Modern: {
     code: "./examples/modern/users.js",
@@ -25,9 +27,12 @@ const EXAMPLES_PATHS = {
 export const getExamples = async () => {
   const examples = {};
 
-  for (const [key, { code, html }] of Object.entries(EXAMPLES_PATHS)) {
+  for (const [key, { code, html, background }] of Object.entries(
+    EXAMPLES_PATHS,
+  )) {
     examples[key.toLocaleLowerCase()] = {
       name: key,
+      background,
       path: html.replace("index.html", ""),
       codeFileName: code.split("/").pop(),
       code: await fetch(code).then((res) => res.text()),
