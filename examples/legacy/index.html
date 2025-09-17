@@ -12,18 +12,18 @@
     <title>Ex: Old School JavaScript</title>
   </head>
   <body style="padding: 2rem">
-    <h1>Users</h1>
+    <h1>Movies</h1>
     <div id="root"></div>
 
     <!-- scripts -->
-    <script src="users.js">
-      /* ⚠️ attached to global `this` as `users` */
+    <script src="movies.js">
+      /* ⚠️ attached to global `this` as `movies` */
     </script>
     <script>
       // 🕰️ ... ye old `var`s and `+` string concatenation!
       var html = "";
-      for (var i = 0; i < users.length; i++) {
-        html += "<p>" + users[i].name + " (" + users[i].age + ")</p>";
+      for (var i = 0; i < movies.length; i++) {
+        html += "<p>" + movies[i].name + " (" + movies[i].year + ")</p>";
       }
 
       var root = document.getElementById("root");

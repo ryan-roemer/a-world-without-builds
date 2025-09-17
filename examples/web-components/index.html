@@ -12,7 +12,7 @@
     <title>Ex: Web Components</title>
   </head>
   <body style="padding: 2rem">
-    <h1>Users</h1>
+    <h1>Movies</h1>
     <div id="root"></div>
 
     <!-- scripts -->
@@ -31,53 +31,53 @@
     <script type="module">
       import { LitElement, html } from "lit";
       import { repeat } from "lit/directives/repeat.js";
-      import { users } from "./users.js";
+      import { movies } from "./movies.js";
 
-      // 💡 User Web Component
-      class UserItem extends LitElement {
+      // 💡 Movie Web Component
+      class MovieItem extends LitElement {
         static properties = {
-          user: { type: Object },
+          movie: { type: Object },
         };
 
         constructor() {
           super();
-          this.user = {};
+          this.movie = {};
         }
 
         render() {
-          return html`<p>${this.user.name} (${this.user.age})</p>`;
+          return html`<p>${this.movie.name} (${this.movie.year})</p>`;
         }
       }
 
       // 💡 App Web Component
-      class UserApp extends LitElement {
+      class MovieApp extends LitElement {
         static properties = {
-          users: { type: Array },
+          movies: { type: Array },
         };
 
         constructor() {
           super();
-          this.users = users;
+          this.movies = movies;
         }
 
         render() {
           return html`
             ${repeat(
-              this.users,
-              (user, i) => i,
-              (user, i) => html`<user-item .user=${user}></user-item>`,
+              this.movies,
+              (movie, i) => i,
+              (movie, i) => html`<movie-item .movie=${movie}></movie-item>`,
             )}
           `;
         }
       }
 
       // 💡 Register components
-      customElements.define("user-item", UserItem);
-      customElements.define("user-app", UserApp);
+      customElements.define("movie-item", MovieItem);
+      customElements.define("movie-app", MovieApp);
 
       // 💡 Mount the app
       const root = document.getElementById("root");
-      root.innerHTML = "<user-app></user-app>";
+      root.innerHTML = "<movie-app></movie-app>";
     </script>
   </body>
 </html>

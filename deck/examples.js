@@ -5,19 +5,19 @@
 
 const EXAMPLES_PATHS = {
   Legacy: {
-    code: "./examples/legacy/users.js",
+    code: "./examples/legacy/movies.js",
     html: "./examples/legacy/index.html",
   },
   Modern: {
-    code: "./examples/modern/users.js",
+    code: "./examples/modern/movies.js",
     html: "./examples/modern/index.html",
   },
   React: {
-    code: "./examples/react/users.js",
+    code: "./examples/react/movies.js",
     html: "./examples/react/index.html",
   },
   TypeScript: {
-    code: "./examples/typescript/users.ts",
+    code: "./examples/typescript/movies.ts",
     html: "./examples/typescript/index.html",
   },
 };

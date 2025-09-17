@@ -12,17 +12,19 @@
     <title>Ex: Modern JavaScript</title>
   </head>
   <body style="padding: 2rem">
-    <h1>Users</h1>
+    <h1>Movies</h1>
     <div id="root"></div>
 
     <!-- scripts -->
     <script type="module">
       // 💡 first class ESM import (static or dynamic).
       // ⚠️ easy to import from relative paths, but what about bare names?
-      import { users } from "./users.js";
+      import { movies } from "./movies.js";
 
       const root = document.getElementById("root");
-      root.innerHTML = users.map((u) => `<p>${u.name} (${u.age})</p>`).join("");
+      root.innerHTML = movies
+        .map((m) => `<p>${m.name} (${m.year})</p>`)
+        .join("");
     </script>
   </body>
 </html>

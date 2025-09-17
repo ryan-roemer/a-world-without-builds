@@ -12,7 +12,7 @@
     <title>Ex: React</title>
   </head>
   <body style="padding: 2rem">
-    <h1>Users</h1>
+    <h1>Movies</h1>
     <div id="root"></div>
 
     <!-- scripts -->
@@ -34,13 +34,13 @@
       import { Fragment, createElement } from "react"; // 💡 Bare names work now!
       import { createRoot } from "react-dom/client";
       import htm from "htm";
-      import { users } from "./users.js";
+      import { movies } from "./movies.js";
 
       const html = htm.bind(createElement); // ✨ JSX-like template literals!
-      const User = ({ name, age }) => html`<p>${name} (${age})</p>`;
+      const Movie = ({ name, year }) => html`<p>${name} (${year})</p>`;
       const App = () => html`
         <${Fragment}>
-          ${users.map((user, i) => html`<${User} key=${i} ...${user} />`)}
+          ${movies.map((movie, i) => html`<${Movie} key=${i} ...${movie} />`)}
         </${Fragment}>`;
 
       const root = createRoot(document.getElementById("root"));

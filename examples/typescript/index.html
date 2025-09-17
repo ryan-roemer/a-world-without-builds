@@ -12,7 +12,7 @@
     <title>Ex: TypeScript</title>
   </head>
   <body style="padding: 2rem">
-    <h1>Users</h1>
+    <h1>Movies</h1>
     <div id="root"></div>
 
     <!-- scripts -->
@@ -23,10 +23,12 @@
     <!-- 💡 `type="module-shim"` skips native check -->
     <script type="module" lang="ts">
       // ✨ Can import `.ts`
-      import { users } from "./users.ts";
+      import { movies } from "./movies.ts";
 
       const root = document.getElementById("root") as HTMLElement;
-      root.innerHTML = users.map((u) => `<p>${u.name} (${u.age})</p>`).join("");
+      root.innerHTML = movies
+        .map((m) => `<p>${m.name} (${m.year})</p>`)
+        .join("");
     </script>
   </body>
 </html>
