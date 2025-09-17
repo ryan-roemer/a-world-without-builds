@@ -195,13 +195,9 @@
               </${Heading}>
             </${FlexBox}>
           </${Slide}>
-          <${Slide}
-            backgroundImage="url(${backgrounds.hi})"
-            backgroundOpacity=${0.5}
-            backgroundColor="${colors.basics.black}"
-          >
-            <${FlexBox} height="100%" flexDirection="column" justifyContent="left" alignItems="left">
-              <${Heading} fontSize="h1" color="secondary" style=${{ textAlign: "center" }}>
+          <${Slide}>
+            <${FlexBox} flexDirection="column" alignSelf="center" justifyContent="left" alignItems="left">
+              <${Heading} fontSize="h1" color="secondary">
                 Hi!
               </${Heading}>
               <${Text} fontSize="h3">
@@ -231,39 +227,26 @@
               </${Text}>
             </${FlexBox}>
           </${Slide}>
-          <${Slide}
-            backgroundImage="url(${backgrounds.history})"
-            backgroundOpacity=${0.4}
-            backgroundColor="${colors.basics.black}"
-          >
-            <${Heading} color="secondary">
-                And now on to the show...
+          <${Slide}>
+            <${FlexBox} flexDirection="column" alignSelf="center" justifyContent="left" alignItems="left">
+              <${Heading} color="secondary">
+                Our whirlwind tour...
               </${Heading}>
-              <${UnorderedList}>
-                <${ListItem}>The past</${ListItem}>
-                <${ListItem}>The present (in two ways)</${ListItem}>
-                <${ListItem}>The buildless future?</${ListItem}>
+              <${UnorderedList} fontSize="h3">
+                <${Appear}><${ListItem}>The past</${ListItem}></${Appear}>
+                <${Appear}><${ListItem}>The present (in two ways)</${ListItem}></${Appear}>
+                <${Appear}><${ListItem}>The buildless future?</${ListItem}></${Appear}>
               </${UnorderedList}>
+            </${FlexBox}>
           </${Slide}>
-          <${Slide}
-            backgroundImage="url(${backgrounds.vintageComputer})"
-            backgroundOpacity=${0.4}
-            backgroundColor="${colors.basics.black}"
-          >
-            <${Heading} fontSize="h1">
-                Long, long ago...
-              </${Heading}>
-              <${UnorderedList}>
-                <${ListItem}>
-                  <strong>1995</strong>: We met JavaScript.
-                </${ListItem}>
-                <${ListItem}>
-                  <strong>1995-2001</strong>: We wrote JavaScript that actually executed in the browser
-                </${ListItem}>
-              </${UnorderedList}>
-          </${Slide}>
-          <${MarkdownSlideSet}>
+          <${MarkdownSlideSet} animateListItems=${true}>
             ${`
+              ---
+              # Long, long ago...
+
+              * **1995**: We met JavaScript.
+              * **1995-2001**: We wrote JavaScript that actually executed in the browser
+
               --- { "layout": "center" }
               # And it looked like this...
 
@@ -290,7 +273,7 @@
 
               We run **minified, heavily transformed** code.
 
-              We no longer _run_ the code we _write_.
+              We no longer _${mdEmphasis("run")}_ the code we _${mdEmphasis("write")}_.
 
               --- { "layout": "center" }
               # And that's OK!
@@ -318,11 +301,11 @@
               ---
               # The Interesting Parts
 
-              * What works **natively**?
+              * What works **${mdEmphasis("natively")}**?
                 * No webpack/vite, no TypeScript/JSX/Babel, ...
                 * Just the **real JavaScript** we wrote executing in a browser?
-              * When can we push the build to **runtime** (e.g. CDN)?
-              * What can you actually get away with (e.g. React)?
+              * When can we push the build to **${mdEmphasis("runtime")}** (e.g. CDN)?
+              * What can you actually get away with (e.g. ${mdEmphasis("React")})?
             `}
           </${MarkdownSlideSet}>
           <${Slide}>
@@ -454,8 +437,7 @@
             ${`
               --- { "layout" : "columns" }
 
-              <!-- TODO: Images??? -->
-              <!-- TODO: appear one column, then the other -->
+              <!-- TODO: I STILL DON'T LIKE THIS SLIDE -->
 
               ::section
 

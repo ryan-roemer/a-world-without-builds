@@ -7,8 +7,6 @@ const EXAMPLES_PATHS = {
   Legacy: {
     code: "./examples/legacy/users.js",
     html: "./examples/legacy/index.html",
-    // TODO: Decide if want this background here!
-    background: "floppies",
   },
   Modern: {
     code: "./examples/modern/users.js",
