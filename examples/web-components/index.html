@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css"
+    />
+    <link rel="stylesheet" href="../styles.css" />
+    <title>Ex: Web Components</title>
+  </head>
+  <body style="padding: 2rem">
+    <h1>Users</h1>
+    <div id="root"></div>
+
+    <!-- scripts -->
+    <!-- 💡 The magic -- map bare names to URLs -->
+    <!-- ✨ Modern Web Components with ESM! -->
+    <script type="importmap">
+      {
+        "imports": {
+          "lit": "https://esm.sh/lit@3.1.0?",
+          "lit/decorators.js": "https://esm.sh/lit@3.1.0/decorators.js?",
+          "lit/directives/repeat.js": "https://esm.sh/lit@3.1.0/directives/repeat.js?",
+          "lit/directives/class-map.js": "https://esm.sh/lit@3.1.0/directives/class-map.js?"
+        }
+      }
+    </script>
+    <!-- scripts -->
+    <script type="module">
+      import { LitElement, html } from "lit";
+      import { repeat } from "lit/directives/repeat.js";
+      import { users } from "./users.js";
+
+      // 💡 User Web Component
+      class UserItem extends LitElement {
+        static properties = {
+          user: { type: Object },
+        };
+
+        constructor() {
+          super();
+          this.user = {};
+        }
+
+        render() {
+          return html`<p>${this.user.name} (${this.user.age})</p>`;
+        }
+      }
+
+      // 💡 App Web Component
+      class UserApp extends LitElement {
+        static properties = {
+          users: { type: Array },
+        };
+
+        constructor() {
+          super();
+          this.users = users;
+        }
+
+        render() {
+          return html`
+            ${repeat(
+              this.users,
+              (user, i) => i,
+              (user, i) => html`<user-item .user=${user}></user-item>`,
+            )}
+          `;
+        }
+      }
+
+      // 💡 Register components
+      customElements.define("user-item", UserItem);
+      customElements.define("user-app", UserApp);
+
+      // 💡 Mount the app
+      const root = document.getElementById("root");
+      root.innerHTML = "<user-app></user-app>";
+    </script>
+  </body>
+</html>

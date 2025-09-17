@@ -283,11 +283,19 @@
 
               We no longer _${mdEmphasis("run")}_ the code we _${mdEmphasis("write")}_.
 
-              --- { "layout": "center" }
-              # And that's OK!
-
             `}
           </${MarkdownSlideSet}>
+          <${Slide}
+            backgroundImage="url(${backgrounds.skyscrapers})"
+            backgroundOpacity=${0.4}
+            backgroundColor="${colors.basics.black}"
+          >
+            <${FlexBox} height="100%" flexDirection="column" alignSelf="center" justifyContent="center" alignItems="center">
+              <${Heading} fontSize="h1" color="primary">
+                And that's OK!
+              </${Heading}>
+            </${FlexBox}>
+          </${Slide}>
           <${Slide}>
             <${Heading} fontSize="h1">
               But...
@@ -313,7 +321,7 @@
                 * No webpack/vite, no TypeScript/JSX/Babel, ...
                 * Just the **real JavaScript** we wrote executing in a browser?
               * When can we push the build to **${mdEmphasis("runtime")}** (e.g. CDN)?
-              * What can you actually get away with (e.g. ${mdEmphasis("React")})?
+              * What can you actually get away with (e.g. Web Components, ${mdEmphasis("React")})?
             `}
           </${MarkdownSlideSet}>
           <${Slide}>
@@ -343,12 +351,19 @@
               // Dynamic import
               const { users } = await import("./users.js");
               \`\`\`
-
-              --- { "layout": "center" }
-              # Let's see these new modules!
-
             `}
           </${MarkdownSlideSet}>
+          <${Slide}
+            backgroundImage="url(${backgrounds.skyscrapers})"
+            backgroundOpacity=${0.4}
+            backgroundColor="${colors.basics.black}"
+          >
+            <${FlexBox} height="100%" flexDirection="column" alignSelf="center" justifyContent="center" alignItems="center">
+              <${Heading} fontSize="h1" color="primary">
+                Let's go ESM!
+              </${Heading}>
+            </${FlexBox}>
+          </${Slide}>
           ${examples.modern.slides}
           <${MarkdownSlideSet}>
             ${`

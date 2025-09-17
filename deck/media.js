@@ -31,4 +31,5 @@ export const backgrounds = {
   history: `https://images.unsplash.com/photo-1501139083538-0139583c060f?${UNSPLASH_QUERY}`,
   floppies: `https://images.unsplash.com/photo-1550221927-f7e52256370b?${UNSPLASH_QUERY}`,
   darkSand: `https://images.unsplash.com/photo-1533134486753-c833f0ed4866?${UNSPLASH_QUERY}`,
+  skyscrapers: `https://images.unsplash.com/photo-1449157291145-7efd050a4d0e?${UNSPLASH_QUERY}`,
 };
