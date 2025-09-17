@@ -30,4 +30,5 @@ export const backgrounds = {
   spectacle: `https://nearform.com/open-source/spectacle/assets/images/background-banner-88f6cfec65b38cc314fc2aaf1ad84484.png`,
   history: `https://images.unsplash.com/photo-1501139083538-0139583c060f?${UNSPLASH_QUERY}`,
   floppies: `https://images.unsplash.com/photo-1550221927-f7e52256370b?${UNSPLASH_QUERY}`,
+  darkSand: `https://images.unsplash.com/photo-1533134486753-c833f0ed4866?${UNSPLASH_QUERY}`,
 };

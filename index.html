@@ -247,11 +247,19 @@
               * **1995**: We met JavaScript.
               * **1995-2001**: We wrote JavaScript that actually executed in the browser
 
-              --- { "layout": "center" }
-              # And it looked like this...
-
             `}
           </${MarkdownSlideSet}>
+          <${Slide}
+            backgroundImage="url(${backgrounds.vintageComputer})"
+            backgroundOpacity=${0.4}
+            backgroundColor="${colors.basics.black}"
+          >
+            <${FlexBox} height="100%" flexDirection="column" alignSelf="center" justifyContent="center" alignItems="center">
+              <${Heading} fontSize="h1" color="primary">
+                And it looked like this...
+              </${Heading}>
+            </${FlexBox}>
+          </${Slide}>
           ${examples.legacy.slides}
           <${MarkdownSlideSet} animateListItems=${true}>
             ${`
@@ -282,11 +290,11 @@
           </${MarkdownSlideSet}>
           <${Slide}>
             <${Heading} fontSize="h1">
-                But...
-              </${Heading}>
-              <${Text} fontSize="h3" textAlign="center">
-                How far could we go without a build?
-              </${Text}>
+              But...
+            </${Heading}>
+            <${Text} fontSize="h3" textAlign="center">
+              How far could we go without a build?
+            </${Text}>
           </${Slide}>
           <${MarkdownSlideSet} animateListItems=${true}>
             ${`
