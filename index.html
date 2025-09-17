@@ -354,25 +354,41 @@
             `}
           </${MarkdownSlideSet}>
           <${Slide}
-            backgroundImage="url(${backgrounds.skyscrapers})"
+            backgroundImage="url(${backgrounds.mopop})"
             backgroundOpacity=${0.4}
             backgroundColor="${colors.basics.black}"
           >
             <${FlexBox} height="100%" flexDirection="column" alignSelf="center" justifyContent="center" alignItems="center">
               <${Heading} fontSize="h1" color="primary">
-                Let's go ESM!
+                Let's see some ESM!
               </${Heading}>
             </${FlexBox}>
           </${Slide}>
           ${examples.modern.slides}
+          <${Slide}
+            backgroundImage="url(${backgrounds.fireworks})"
+            backgroundOpacity=${0.4}
+            backgroundColor="${colors.basics.black}"
+          >
+            <${FlexBox} height="100%" flexDirection="column" alignSelf="center" justifyContent="center" alignItems="center">
+              <${Heading} fontSize="h1" color="primary">
+                Yay!
+              </${Heading}>
+            </${FlexBox}>
+          </${Slide}>
+          <${Slide}
+            backgroundImage="url(${backgrounds.fire})"
+            backgroundOpacity=${0.4}
+            backgroundColor="${colors.basics.black}"
+          >
+            <${FlexBox} height="100%" flexDirection="column" alignSelf="center" justifyContent="center" alignItems="center">
+              <${Heading} fontSize="h1" color="primary">
+                ... then we hit all the hard parts
+              </${Heading}>
+            </${FlexBox}>
+          </${Slide}>
           <${MarkdownSlideSet}>
             ${`
-              --- { "layout": "center" }
-              # Yay!
-
-              --- { "layout": "center" }
-              # Ok, then we hit all the hard parts...
-
               ---
               # **2018**: Import Maps
 
@@ -432,44 +448,67 @@
               <!-- _2017_: unpkg.com module flag, _2020_: esm.sh, _2017_: jspm.io, etc. -->
               <!-- _2018_: Deno, _2022_: Bun -->
 
-              --- { "layout": "center" }
-              # Let's ship a React app!
-
             `}
           </${MarkdownSlideSet}>
+          <${Slide}
+            backgroundImage="url(${backgrounds.nuclear})"
+            backgroundOpacity=${0.4}
+            backgroundColor="${colors.basics.black}"
+          >
+            <${FlexBox} height="100%" flexDirection="column" alignSelf="center" justifyContent="center" alignItems="center">
+              <${Heading} fontSize="h1" color="primary">
+                Let's ship a React app!
+              </${Heading}>
+            </${FlexBox}>
+          </${Slide}>
           ${examples.react.slides}
+          <${Slide}
+            backgroundImage="url(${backgrounds.earth})"
+            backgroundOpacity=${0.4}
+            backgroundColor="${colors.basics.black}"
+          >
+            <${FlexBox} height="100%" flexDirection="column" alignSelf="center" justifyContent="center" alignItems="center">
+              <${Heading} fontSize="h1" color="primary">
+                How about the real world?
+              </${Heading}>
+            </${FlexBox}>
+          </${Slide}>
           <${MarkdownSlideSet} animateListItems=${true}>
             ${`
-              --- { "layout": "center" }
-              # How about the real world?
-
               ---
               # Performance
 
               * Spoiler: it's faster to bundle
-                  * ... but how much?
-                  * ... and what does your application actually need?
-              * Let's compare build vs. no build in an unscientific...
-
-              --- { "layout": "center" }
-              # **BATTLE OF THE BUILDS**
-
+                  * ... but how ${mdEmphasis("much")}?
+                  * ... and what does your application actually ${mdEmphasis("need")}?
+              * Let's ${mdEmphasis("compare")} build vs. no build in an unscientific...
             `}
           </${MarkdownSlideSet}>
+          <${Slide}
+            backgroundImage="url(${backgrounds.boxingGloves})"
+            backgroundOpacity=${0.5}
+            backgroundColor="${colors.basics.black}"
+          >
+            <${FlexBox} height="100%" flexDirection="column" alignSelf="center" justifyContent="center" alignItems="center">
+              <${Heading} fontSize="180px" color="primary">
+                BATTLE OF THE BUILDS
+              </${Heading}>
+            </${FlexBox}>
+          </${Slide}>
           <${MarkdownSlideSet}>
             ${`
               --- { "layout" : "columns" }
 
-              <!-- TODO: I STILL DON'T LIKE THIS SLIDE -->
-
               ::section
 
-              ## No Build
+              ## <span style="color: ${theme.colors.quaternary};">${icon({ name: "empty", fill: false })} No Build</span>
 
-              - **Bigger**:
-                - 112 requests
-                - 826 kB
-              - **Slower**: 250 ms
+              **${mdEmphasis("Bigger")}**:
+              - 112 requests
+              - 826 kB
+
+              **${mdEmphasis("Slower")}**:
+              - 250 ms
 
               <!--
               - **Smaller**:112 requests
@@ -482,12 +521,14 @@
 
               ::section
 
-              ## A Build
+              ## <span style="color: ${theme.colors.quaternary};">${icon({ name: "toolbox", fill: false })} A Build</span>
 
-              - **Smaller**:
-                - 5 requests
-                - 640 kB
-              - **Faster** 150 ms
+              **${mdEmphasis("Smaller")}**:
+              - 5 requests
+              - 640 kB
+
+              **${mdEmphasis("Faster")}**:
+              - 150 ms
 
               <!--
               - 5 requests
