@@ -365,7 +365,7 @@
             </${FlexBox}>
           </${Slide}>
           <${Slide}
-            backgroundImage="url(${backgrounds.fire})"
+            backgroundImage="url(${backgrounds.brickWall})"
             backgroundOpacity=${0.4}
             backgroundColor="${colors.basics.black}"
           >
@@ -380,49 +380,31 @@
               ---
               # **2018**: Import Maps
 
-              ${mdEmphasis("The problem")}: bare specifiers (aka \`"lodash"\`)
+              ${mdEmphasis("The problem")}: Can't import \`"lodash"\` (or any dep!)
 
               \`\`\`js
               import lodash from "lodash"; // ⚠️ Doesn't work
               \`\`\`
 
-              ${mdEmphasis("The solution")}: map a bare specifier to a URL
+              ${mdEmphasis("The solution")}: map a package name to a URL
               <!-- March 2018 first repo
                    https://github.com/WICG/import-maps/blob/2ed3a0c6acb196d2469cbb5e0fc064276d0fe5dc/README.md
                 -->
 
               \`\`\`html
-              <${""}script type="importmap">
-                {
-                  "imports": {
+              <${""}script type="importmap">{
+                "imports": {
                     "lodash": "https://esm.sh/lodash@^4.17.21"
-                  }
                 }
-              <${""}/script>
+              }<${""}/script>
               \`\`\`
 
               ---
-              # **2018**: Import Maps
+              # **2018-2021**: Import Maps
 
-              ${mdEmphasis("The problem")}: **NONE OF THIS IS IMPLEMENTED YET**
-
-              ${mdEmphasis("The solution")}: [\`es-module-shims\`](https://github.com/guybedford/es-module-shims)
-
-              \`\`\`html
-              <!-- ✨ Check out the '-shim' suffix -->
-              <${""}script type="importmap-shim">
-                {
-                  "imports": {
-                    "lodash": "https://esm.sh/lodash@^4.17.21"
-                  }
-                }
-              <${""}/script>
-              \`\`\`
-
-              ---
-              # **2021**: Import Maps
-
-              OK, now they finally start to be supported.
+              * **2018**: ${mdEmphasis("Another problem")} - not actually **shipped**
+              * **2018**: [\`es-module-shims\`](https://github.com/guybedford/es-module-shims) (✨) to the rescue!
+              * **2021**: Finally **shipped**
 
               ---
               # **2017+**: CDNs

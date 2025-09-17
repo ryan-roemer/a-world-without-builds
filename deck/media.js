@@ -38,4 +38,5 @@ export const backgrounds = {
   nuclear: `https://images.unsplash.com/photo-1630142895963-6996ae6b3a5b?${UNSPLASH_QUERY}`,
   earth: `https://images.unsplash.com/photo-1534996858221-380b92700493?${UNSPLASH_QUERY}`,
   boxingGloves: `https://images.unsplash.com/photo-1583473848882-f9a5bc7fd2ee?${UNSPLASH_QUERY}`,
+  brickWall: `https://images.unsplash.com/photo-1546709843-e35cf3d3002d?${UNSPLASH_QUERY}`,
 };
