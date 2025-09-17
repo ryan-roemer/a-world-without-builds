@@ -195,22 +195,6 @@
               </${Heading}>
             </${FlexBox}>
           </${Slide}>
-          <${Slide}>
-            <${FlexBox} flexDirection="column" alignSelf="center" justifyContent="left" alignItems="left">
-              <${Heading} fontSize="h1" color="secondary">
-                Hi!
-              </${Heading}>
-              <${Text} fontSize="h3">
-                <${IconHtm} name="hand-waving" /> I'm Ryan Roemer
-              </${Text}>
-              <${Text} fontSize="h3">
-                ${logosHtm.nearform} I lead technology & OSS at <${Link} href="https://nearform.com" fontSize="h3">Nearform</${Link}>
-              </${Text}>
-              <${Text} fontSize="h3">
-                <${IconHtm} name="toolbox" /> I <strong>like</strong> & <strong>dislike</strong> builds
-              </${Text}>
-            </${FlexBox}>
-          </${Slide}>
           <${Slide} backgroundImage="url(${backgrounds.spectacle})">
             <${FlexBox} height="100%" flexDirection="column" justifyContent="center" alignItems="center">
               <${Link} href="https://nearform.com/open-source/spectacle">
@@ -229,20 +213,24 @@
           </${Slide}>
           <${Slide}>
             <${FlexBox} flexDirection="column" alignSelf="center" justifyContent="left" alignItems="left">
-              <${Heading} color="secondary">
-                Our whirlwind tour...
+              <${Heading} fontSize="h1" color="secondary">
+                Hi!
               </${Heading}>
-              <${UnorderedList} fontSize="h3">
-                <${Appear}><${ListItem}>The past</${ListItem}></${Appear}>
-                <${Appear}><${ListItem}>The present (in two ways)</${ListItem}></${Appear}>
-                <${Appear}><${ListItem}>The buildless future?</${ListItem}></${Appear}>
-              </${UnorderedList}>
+              <${Text} fontSize="h3">
+                <${IconHtm} name="hand-waving" /> I'm Ryan Roemer
+              </${Text}>
+              <${Text} fontSize="h3">
+                ${logosHtm.nearform} I lead technology & OSS at <${Link} href="https://nearform.com" fontSize="h3">Nearform</${Link}>
+              </${Text}>
+              <${Text} fontSize="h3">
+                <${IconHtm} name="toolbox" /> I <strong>like</strong> & <strong>dislike</strong> builds
+              </${Text}>
             </${FlexBox}>
           </${Slide}>
           <${MarkdownSlideSet} animateListItems=${true}>
             ${`
               ---
-              # Long, long ago...
+              # Let's look at some history...
 
               * **1995**: We met JavaScript.
               * **1995-2001**: We wrote JavaScript that actually executed in the browser
