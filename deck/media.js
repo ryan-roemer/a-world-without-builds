@@ -21,7 +21,8 @@ export const logos = Object.fromEntries(
 );
 
 export const images = {
-  qrCode: "/images/qr-code.png",
+  // Relative to index.html
+  qrCode: "./images/qr-code.png",
 };
 
 const UNSPLASH_QUERY =
