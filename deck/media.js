@@ -34,6 +34,7 @@ export const backgrounds = {
   skyscrapers: `https://images.unsplash.com/photo-1449157291145-7efd050a4d0e?${UNSPLASH_QUERY}`,
   mopop: `https://images.unsplash.com/photo-1508858648555-ba5da0be9511?${UNSPLASH_QUERY}`,
   fireworks: `https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?${UNSPLASH_QUERY}`,
+  fireworksMinimal: `https://images.unsplash.com/photo-1532874527472-cf690743dc78?${UNSPLASH_QUERY}`,
   fire: `https://images.unsplash.com/photo-1517594422361-5eeb8ae275a9?${UNSPLASH_QUERY}`,
   nuclear: `https://images.unsplash.com/photo-1630142895963-6996ae6b3a5b?${UNSPLASH_QUERY}`,
   earth: `https://images.unsplash.com/photo-1534996858221-380b92700493?${UNSPLASH_QUERY}`,

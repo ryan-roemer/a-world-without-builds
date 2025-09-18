@@ -307,17 +307,17 @@
 
               * What works **${mdEmphasis("natively")}**?
                 * No webpack/vite, no TypeScript/JSX/Babel, ...
-                * Just the **real JavaScript** we wrote executing in a browser?
+                * Just **${mdEmphasis("pure JavaScript")}** running in a browser?
               * When can we push the build to **${mdEmphasis("runtime")}** (e.g. CDN)?
               * What can you actually get away with (e.g. Web Components, ${mdEmphasis("React")})?
             `}
           </${MarkdownSlideSet}>
           <${Slide}>
             <${Heading} fontSize="h1">
-                Another timeline...
+                Another timeline
               </${Heading}>
               <${Text} textAlign="center">
-                That's a bit less well-known and a bit bumpy...
+                The road to buildless...
               </${Text}>
           </${Slide}>
           <${MarkdownSlideSet} animateListItems=${true}>
@@ -354,8 +354,8 @@
           </${Slide}>
           ${examples.modern.slides}
           <${Slide}
-            backgroundImage="url(${backgrounds.fireworks})"
-            backgroundOpacity=${0.4}
+            backgroundImage="url(${backgrounds.fireworksMinimal})"
+            backgroundOpacity=${0.6}
             backgroundColor="${colors.basics.black}"
           >
             <${FlexBox} height="100%" flexDirection="column" alignSelf="center" justifyContent="center" alignItems="center">
@@ -371,11 +371,11 @@
           >
             <${FlexBox} height="100%" flexDirection="column" alignSelf="center" justifyContent="center" alignItems="center">
               <${Heading} fontSize="h1" color="primary">
-                ... then we hit all the hard parts
+                ... but then we hit all the hard parts
               </${Heading}>
             </${FlexBox}>
           </${Slide}>
-          <${MarkdownSlideSet}>
+          <${MarkdownSlideSet} animateListItems=${true}>
             ${`
               ---
               # **2018**: Import Maps
@@ -404,7 +404,8 @@
 
               * **2018**: ${mdEmphasis("Another problem")} - not actually **shipped**
               * **2018**: [\`es-module-shims\`](https://github.com/guybedford/es-module-shims) (✨) to the rescue!
-              * **2021**: Finally **shipped**
+                  * **Rewriting** and **polyfilling** not-yet-supported features
+              * **2021**: Finally, broadly **shipped**
 
               ---
               # **2017+**: CDNs
@@ -460,8 +461,9 @@
             backgroundColor="${colors.basics.black}"
           >
             <${FlexBox} height="100%" flexDirection="column" alignSelf="center" justifyContent="center" alignItems="center">
-              <${Heading} fontSize="180px" color="primary">
-                BATTLE OF THE BUILDS
+              <${Heading} fontSize="140px" color="primary">
+                BATTLE OF<br />
+                THE BUILDS
               </${Heading}>
             </${FlexBox}>
           </${Slide}>
