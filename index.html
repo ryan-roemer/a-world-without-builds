@@ -105,7 +105,7 @@
       } from "spectacle";
 
       import { theme, colors } from "./deck/theme.js";
-      import { logos, logosHtm, backgrounds } from "./deck/media.js";
+      import { logos, logosHtm, backgrounds, images } from "./deck/media.js";
       import { getExamples } from "./deck/examples.js";
       const html = htm.bind(createElement);
 
@@ -533,26 +533,45 @@
           ${examples.typescript.slides}
           <${MarkdownSlideSet}>
             ${`
-              --- { "layout": "center" }
+              --- { "layout" : "columns" }
+
+              ::section
+              
               # Go play around!
 
-              See the deck at:
-              ${icon("browser")} [ryan-roemer.github.io/a-world-without-builds](https://ryan-roemer.github.io/a-world-without-builds/)
+              ${icon("browser")} See the deck at:
+              [ryan-roemer.github.io/a-world-without-builds](https://ryan-roemer.github.io/a-world-without-builds/)
 
-              ...and check out the code at:
-              ${icon("github-logo")} [ryan-roemer/a-world-without-builds](https://github.com/ryan-roemer/a-world-without-builds)
+              ${icon("github-logo")} ...and check out the code at:
+              [ryan-roemer/a-world-without-builds](https://github.com/ryan-roemer/a-world-without-builds)
+
+              ::section
+
+              <img src=${images.qrCode} width="200px" style="margin: 0 40px; margin-top: calc(25vh);" />
 
               Notes: \
                 You've probable guessed the spoiler here...\
                 This Spectacle deck is a no-build React application that uses htm!
 
-              --- { "layout": "center" }
+              --- { "layout": "columns" }
+
+              ::section
+
               # Thanks!
 
-              ${icon("twitter-logo")} [@ryan_roemer](https://x.com/ryan_roemer)
-              ${icon("butterfly")} [@ryan-roemer.bsky.social](https://bsky.app/profile/ryan-roemer.bsky.social)
+              ${icon("github-logo")} [ryan-roemer](https://github.com/ryan-roemer/)
               ${icon("linkedin-logo")} [in/ryanroemer](https://www.linkedin.com/in/ryanroemer/)
               ${icon("envelope")} [ryan.roemer@nearform.com](mailto:ryan.roemer@nearform.com)
+
+              <!--
+              ${icon("twitter-logo")} [@ryan_roemer](https://x.com/ryan_roemer)
+              ${icon("butterfly")} [@ryan-roemer.bsky.social](https://bsky.app/profile/ryan-roemer.bsky.social)
+              -->
+
+              ::section
+
+              <img src=${images.qrCode} width="200px" style="margin: 0 40px; margin-top: calc(25vh);" />
+
             `}
           </${MarkdownSlideSet}>
         </${Deck}>
